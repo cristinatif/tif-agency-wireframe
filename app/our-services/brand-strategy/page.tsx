@@ -1,6 +1,6 @@
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
-import { Hero, Section, Card, ServiceBox, ProcessStep, MediaPlaceholder } from '@/components/SectionComponents'
+import { Hero, Section, Card, ServiceBox, ProcessStep, MediaPlaceholder, BrochureCtaBanner, ResourcesSection } from '@/components/SectionComponents'
 import { ProposalForm } from '@/components/ProposalForm'
 import { HiCheckCircle } from 'react-icons/hi2'
 import Link from 'next/link'
@@ -81,6 +81,8 @@ export default function BrandStrategyService() {
             </div>
           </div>
         </Section>
+
+        <BrochureCtaBanner serviceName="Brand Strategy" />
 
         <Section title="Our Strategic Process" darkBg sectionNumber={2}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
@@ -221,6 +223,8 @@ export default function BrandStrategyService() {
             </div>
           </div>
         </Section>
+
+        <ResourcesSection />
 
         <Section title="Common Questions" darkBg sectionNumber={5}>
           <div className="max-w-2xl mx-auto space-y-4">

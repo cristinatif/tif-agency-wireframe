@@ -252,3 +252,70 @@ export function ProcessStep({ number, title, description, delay }: ProcessStepPr
     </div>
   )
 }
+
+export function BrochureCtaBanner({ serviceName }: { serviceName: string }) {
+  const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>()
+
+  return (
+    <div
+      ref={ref}
+      className={`border border-gray-200 bg-gradient-to-r from-gray-50 to-white p-8 md:p-12 my-12 ${
+        isVisible ? 'animate-slide-in-up' : 'opacity-0 translate-y-4'
+      }`}
+    >
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <div>
+          <h3 className="font-bold text-text-primary mb-2 text-lg">Want to learn more?</h3>
+          <p className="text-text-secondary text-sm">
+            Download our comprehensive guide to understand our {serviceName} approach, methodology, and case studies.
+          </p>
+        </div>
+        <div className="flex gap-4 flex-col md:flex-row justify-end">
+          <a href="#" className="inline-block border border-text-primary text-text-primary px-6 py-3 hover:bg-hover transition-colors font-semibold text-center text-sm">Download Brochure</a>
+          <a href="#proposal-form" className="inline-block bg-text-primary text-background px-6 py-3 hover:opacity-80 transition-opacity font-semibold text-center text-sm">Quick Call</a>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export function ResourcesSection() {
+  const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>()
+
+  return (
+    <div
+      ref={ref}
+      className={`bg-white border border-gray-200 p-8 md:p-12 my-12 ${
+        isVisible ? 'animate-zoom-in' : 'opacity-0 scale-95'
+      }`}
+    >
+      <div className="max-w-4xl mx-auto">
+        <h3 className="font-bold text-text-primary mb-2 text-center text-lg">What's Next?</h3>
+        <p className="text-text-secondary text-center text-sm mb-8">Choose how you'd like to move forward</p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <a href="#" className="border border-gray-200 p-6 hover:shadow-lg transition-shadow group cursor-pointer">
+            <div className="text-3xl mb-3 group-hover:scale-110 transition-transform inline-block">📊</div>
+            <h4 className="font-bold text-text-primary mb-2 group-hover:text-gray-700 transition-colors">Case Studies</h4>
+            <p className="text-text-secondary text-sm mb-4">See how we've helped similar companies achieve growth</p>
+            <span className="text-text-primary text-sm font-semibold group-hover:translate-x-1 transition-transform inline-block">Read →</span>
+          </a>
+
+          <a href="#" className="border border-gray-200 p-6 hover:shadow-lg transition-shadow group cursor-pointer">
+            <div className="text-3xl mb-3 group-hover:scale-110 transition-transform inline-block">📄</div>
+            <h4 className="font-bold text-text-primary mb-2 group-hover:text-gray-700 transition-colors">Strategy Guide</h4>
+            <p className="text-text-secondary text-sm mb-4">Download our detailed playbook and best practices</p>
+            <span className="text-text-primary text-sm font-semibold group-hover:translate-x-1 transition-transform inline-block">Download →</span>
+          </a>
+
+          <a href="#proposal-form" className="border border-gray-200 p-6 hover:shadow-lg transition-shadow group cursor-pointer bg-gray-50">
+            <div className="text-3xl mb-3 group-hover:scale-110 transition-transform inline-block">💬</div>
+            <h4 className="font-bold text-text-primary mb-2 group-hover:text-gray-700 transition-colors">Get a Proposal</h4>
+            <p className="text-text-secondary text-sm mb-4">Let's discuss your specific needs and create a custom plan</p>
+            <span className="text-text-primary text-sm font-semibold group-hover:translate-x-1 transition-transform inline-block">Start →</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  )
+}

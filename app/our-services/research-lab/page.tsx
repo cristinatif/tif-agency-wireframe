@@ -1,6 +1,6 @@
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
-import { Hero, Section, Card, ServiceBox, ProcessStep, MediaPlaceholder } from '@/components/SectionComponents'
+import { Hero, Section, Card, ServiceBox, ProcessStep, MediaPlaceholder, BrochureCtaBanner, ResourcesSection } from '@/components/SectionComponents'
 import { ProposalForm } from '@/components/ProposalForm'
 import { ServiceIcon } from '@/components/ServiceIcons'
 import Link from 'next/link'
@@ -84,6 +84,8 @@ export default function ResearchLabService() {
             </div>
           </div>
         </Section>
+
+        <BrochureCtaBanner serviceName="Research Lab" />
 
         {/* Our Approach */}
         <Section title="Our Approach" darkBg sectionNumber={2}>
@@ -230,6 +232,8 @@ export default function ResearchLabService() {
             </div>
           </div>
         </Section>
+
+        <ResourcesSection />
 
         {/* FAQ */}
         <Section title="Common Questions" darkBg sectionNumber={5}>
