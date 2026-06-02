@@ -222,11 +222,7 @@ export default function BrandStrategyService() {
           </div>
         </Section>
 
-        <Section title="Ready to Build a Stronger Brand?" sectionNumber={5} id="proposal-form">
-          <ProposalForm service="Brand Strategy" />
-        </Section>
-
-        <Section title="Common Questions" darkBg sectionNumber={6}>
+        <Section title="Common Questions" darkBg sectionNumber={5}>
           <div className="max-w-2xl mx-auto space-y-4">
             {faqs.map((faq, idx) => (
               <details
@@ -243,24 +239,18 @@ export default function BrandStrategyService() {
           </div>
         </Section>
 
-        <Section title="Let's Build Your Strategic Brand" sectionNumber={7}>
-          <div className="text-center">
-            <p className="text-text-secondary mb-8 max-w-2xl mx-auto">
-              A strong brand strategy is the foundation for sustainable growth. Let's define your unique position and build a go-to-market plan that wins.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link
-                href="#proposal-form"
-                className="inline-block bg-text-primary text-background px-10 py-4 hover:opacity-80 transition-opacity font-semibold"
-              >
-                Get a Proposal
-              </Link>
-              <Link
-                href="/contact-us"
-                className="inline-block border border-text-primary text-text-primary px-10 py-4 hover:bg-hover transition-colors font-semibold"
-              >
-                Chat First
-              </Link>
+        <Section title="Let's Build Your Strategic Brand" sectionNumber={6} id="proposal-form">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+            <div className="flex flex-col justify-start">
+              <p className="text-text-secondary mb-8 text-lg leading-relaxed">
+                A strong brand strategy is the foundation for sustainable growth. Let's define your unique position and build a go-to-market plan that wins.
+              </p>
+              <div className="flex flex-col gap-4">
+                <Link href="/contact-us" className="inline-block border border-text-primary text-text-primary px-10 py-4 hover:bg-hover transition-colors font-semibold text-center">Chat First</Link>
+              </div>
+            </div>
+            <div>
+              <ProposalForm service="Brand Strategy" />
             </div>
           </div>
         </Section>

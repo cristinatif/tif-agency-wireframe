@@ -231,13 +231,8 @@ export default function ResearchLabService() {
           </div>
         </Section>
 
-        {/* Proposal Form */}
-        <Section title="Ready to Make Data-Driven Decisions?" sectionNumber={5} id="proposal-form">
-          <ProposalForm service="Research Lab" />
-        </Section>
-
         {/* FAQ */}
-        <Section title="Common Questions" darkBg sectionNumber={6}>
+        <Section title="Common Questions" darkBg sectionNumber={5}>
           <div className="max-w-2xl mx-auto space-y-4">
             {faqs.map((faq, idx) => (
               <details
@@ -254,25 +249,19 @@ export default function ResearchLabService() {
           </div>
         </Section>
 
-        {/* Final CTA */}
-        <Section title="Let's Uncover Your Next Opportunity" sectionNumber={7}>
-          <div className="text-center">
-            <p className="text-text-secondary mb-8 max-w-2xl mx-auto">
-              Whether you need market validation, competitive intelligence, or customer insights—we'll turn data into strategy.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link
-                href="#proposal-form"
-                className="inline-block bg-text-primary text-background px-10 py-4 hover:opacity-80 transition-opacity font-semibold"
-              >
-                Get a Proposal
-              </Link>
-              <Link
-                href="/contact-us"
-                className="inline-block border border-text-primary text-text-primary px-10 py-4 hover:bg-hover transition-colors font-semibold"
-              >
-                Chat First
-              </Link>
+        {/* Final CTA + Proposal Form */}
+        <Section title="Let's Uncover Your Next Opportunity" sectionNumber={6} id="proposal-form">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+            <div className="flex flex-col justify-start">
+              <p className="text-text-secondary mb-8 text-lg leading-relaxed">
+                Whether you need market validation, competitive intelligence, or customer insights—we'll turn data into strategy. Get a custom proposal in 48 hours.
+              </p>
+              <div className="flex flex-col gap-4">
+                <Link href="/contact-us" className="inline-block border border-text-primary text-text-primary px-10 py-4 hover:bg-hover transition-colors font-semibold text-center">Chat First</Link>
+              </div>
+            </div>
+            <div>
+              <ProposalForm service="Research Lab" />
             </div>
           </div>
         </Section>

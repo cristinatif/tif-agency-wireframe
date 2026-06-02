@@ -141,11 +141,7 @@ export default function DigitalMarketingService() {
           </div>
         </Section>
 
-        <Section title="Ready to Accelerate Growth?" sectionNumber={5} id="proposal-form">
-          <ProposalForm service="Digital Marketing" />
-        </Section>
-
-        <Section title="Common Questions" darkBg sectionNumber={6}>
+        <Section title="Common Questions" darkBg sectionNumber={5}>
           <div className="max-w-2xl mx-auto space-y-4">
             {faqs.map((faq, idx) => (
               <details key={idx} className="border border-gray-200 p-6 bg-white hover:bg-gray-50 cursor-pointer transition-colors">
@@ -156,14 +152,18 @@ export default function DigitalMarketingService() {
           </div>
         </Section>
 
-        <Section title="Let's Build Your Growth Engine" sectionNumber={7}>
-          <div className="text-center">
-            <p className="text-text-secondary mb-8 max-w-2xl mx-auto">
-              Digital growth doesn't happen by accident. Let's build a strategic, optimized system that scales with your business.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link href="#proposal-form" className="inline-block bg-text-primary text-background px-10 py-4 hover:opacity-80 transition-opacity font-semibold">Get a Proposal</Link>
-              <Link href="/contact-us" className="inline-block border border-text-primary text-text-primary px-10 py-4 hover:bg-hover transition-colors font-semibold">Chat First</Link>
+        <Section title="Ready to Accelerate Growth?" sectionNumber={6} id="proposal-form">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+            <div className="flex flex-col justify-start">
+              <p className="text-text-secondary mb-8 text-lg leading-relaxed">
+                Digital growth doesn't happen by accident. Let's build a strategic, optimized system that scales with your business. Get a custom proposal in 48 hours.
+              </p>
+              <div className="flex flex-col gap-4">
+                <Link href="/contact-us" className="inline-block border border-text-primary text-text-primary px-10 py-4 hover:bg-hover transition-colors font-semibold text-center">Chat First</Link>
+              </div>
+            </div>
+            <div>
+              <ProposalForm service="Digital Marketing" />
             </div>
           </div>
         </Section>
