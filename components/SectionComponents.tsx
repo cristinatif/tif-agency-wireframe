@@ -3,6 +3,7 @@
 import { ReactNode } from 'react'
 import { HiArrowRight, HiCheckCircle, HiLightBulb } from 'react-icons/hi2'
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
+import Link from 'next/link'
 
 interface HeroProps {
   title: string
@@ -188,6 +189,66 @@ export function ServiceBox({ number, title, description }: ServiceBoxProps) {
       <div className="flex items-center justify-center w-10 h-10 bg-text-primary text-white rounded-full mb-4 font-bold text-lg">{number}</div>
       <h3 className="font-bold text-text-primary mb-2">{title}</h3>
       <p className="text-text-secondary text-sm">{description}</p>
+    </div>
+  )
+}
+
+interface ServiceCardProps {
+  icon: ReactNode
+  title: string
+  description: string
+  href: string
+}
+
+export function ServiceCard({ icon, title, description, href }: ServiceCardProps) {
+  const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>()
+
+  return (
+    <Link href={href}>
+      <div
+        ref={ref}
+        className={`h-full border border-gray-200 p-8 bg-white hover:bg-gray-50 transition-all hover:shadow-lg cursor-pointer group ${
+          isVisible ? 'animate-zoom-in' : 'opacity-0 scale-95'
+        }`}
+      >
+        <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">{icon}</div>
+        <h3 className="font-bold text-text-primary mb-3 text-lg group-hover:text-gray-700 transition-colors">{title}</h3>
+        <p className="text-text-secondary text-sm mb-4">{description}</p>
+        <span className="text-text-primary text-sm font-semibold group-hover:translate-x-1 transition-transform inline-block">
+          Explore →
+        </span>
+      </div>
+    </Link>
+  )
+}
+
+interface ProcessStepProps {
+  number: string
+  title: string
+  description: string
+  delay: string
+}
+
+export function ProcessStep({ number, title, description, delay }: ProcessStepProps) {
+  const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>()
+
+  return (
+    <div
+      ref={ref}
+      className={`flex gap-6 ${
+        isVisible ? 'animate-slide-in-up' : 'opacity-0 translate-y-4'
+      }`}
+      style={{ animationDelay: delay }}
+    >
+      <div className="flex-shrink-0">
+        <div className="flex items-center justify-center w-12 h-12 bg-text-primary text-white rounded-full font-bold text-lg">
+          {number}
+        </div>
+      </div>
+      <div className="flex-grow">
+        <h4 className="font-bold text-text-primary mb-2">{title}</h4>
+        <p className="text-text-secondary text-sm">{description}</p>
+      </div>
     </div>
   )
 }
