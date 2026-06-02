@@ -47,7 +47,7 @@ export default function Blogs() {
           description="Explore our latest thinking on marketing, strategy, and creative excellence."
         />
 
-        <Section title="Latest Articles">
+        <Section title="Latest Articles" sectionNumber={1}>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogs.map((blog) => (
               <div key={blog.id} className="border border-border-light">
@@ -70,7 +70,7 @@ export default function Blogs() {
           </div>
         </Section>
 
-        <Section title="Subscribe to Updates" darkBg>
+        <Section title="Subscribe to Updates" darkBg sectionNumber={2}>
           <div className="max-w-2xl mx-auto text-center">
             <p className="text-text-secondary mb-6">
               Get our latest articles delivered to your inbox every month.

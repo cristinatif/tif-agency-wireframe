@@ -41,7 +41,7 @@ export default function Reports() {
           description="Access our comprehensive research reports covering market trends, consumer insights, and competitive analysis."
         />
 
-        <Section title="Available Reports">
+        <Section title="Available Reports" sectionNumber={1}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {reports.map((report) => (
               <div key={report.id} className="border border-border-light p-6 bg-surface-1 hover:bg-surface-2 transition-colors">
@@ -60,7 +60,7 @@ export default function Reports() {
           </div>
         </Section>
 
-        <Section title="Request Custom Research" darkBg>
+        <Section title="Request Custom Research" darkBg sectionNumber={2}>
           <div className="max-w-2xl mx-auto text-center">
             <p className="text-text-secondary mb-6">
               Need research on a specific topic or market? We can develop custom research tailored to your strategic needs.

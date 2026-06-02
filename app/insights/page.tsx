@@ -38,7 +38,7 @@ export default function Insights() {
           description="Stay informed with our latest market research, insights, and strategic analysis."
         />
 
-        <Section title="Latest Insights">
+        <Section title="Latest Insights" sectionNumber={1}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {insights.map((insight) => (
               <div key={insight.id} className="border border-border-light p-6 bg-surface-1">
@@ -51,7 +51,7 @@ export default function Insights() {
           </div>
         </Section>
 
-        <Section title="Featured Research" darkBg>
+        <Section title="Featured Research" darkBg sectionNumber={2}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="border border-border-light p-6 bg-surface-1">
               <MediaPlaceholder height="h-64" label="Research Study" />
@@ -66,7 +66,7 @@ export default function Insights() {
           </div>
         </Section>
 
-        <Section title="Explore More">
+        <Section title="Explore More" sectionNumber={3}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Link href="/blogs" className="border border-border-light p-6 bg-surface-1 hover:bg-surface-2 transition-colors text-center">
               <h3 className="font-bold text-text-primary mb-2">Blogs</h3>

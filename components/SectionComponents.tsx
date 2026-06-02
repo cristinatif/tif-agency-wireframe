@@ -24,13 +24,15 @@ interface SectionProps {
   subtitle?: string
   children: ReactNode
   darkBg?: boolean
+  sectionNumber?: number
 }
 
-export function Section({ title, subtitle, children, darkBg = false }: SectionProps) {
+export function Section({ title, subtitle, children, darkBg = false, sectionNumber }: SectionProps) {
   return (
     <section className={`${darkBg ? 'bg-surface-3' : 'bg-surface-1'} py-16 md:py-24 border-b border-border-medium`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12">
+          {sectionNumber && <p className="text-text-secondary text-sm mb-2">[Section {String(sectionNumber).padStart(2, '0')}]</p>}
           <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-2">{title}</h2>
           {subtitle && <p className="text-text-secondary text-lg">{subtitle}</p>}
         </div>

@@ -15,7 +15,7 @@ export default function OurServices() {
         />
 
         {/* Research Lab */}
-        <Section id="research" title="Research Lab" subtitle="Data-Driven Insights & Strategy">
+        <Section id="research" title="Research Lab" subtitle="Data-Driven Insights & Strategy" sectionNumber={1}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
             <div>
               <h3 className="font-bold text-text-primary mb-4 text-lg">Strategic Research Foundation</h3>
@@ -49,7 +49,7 @@ export default function OurServices() {
         </Section>
 
         {/* Brand & Marketing Strategy */}
-        <Section id="strategy" title="Brand & Marketing Strategy" darkBg>
+        <Section id="strategy" title="Brand & Marketing Strategy" darkBg sectionNumber={2}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
             <MediaPlaceholder height="h-96" label="Strategy Development Visual" />
             <div>
@@ -83,7 +83,7 @@ export default function OurServices() {
         </Section>
 
         {/* Creative Services */}
-        <Section id="creative" title="Creative Services" subtitle="Design, AV, & Digital Excellence">
+        <Section id="creative" title="Creative Services" subtitle="Design, AV, & Digital Excellence" sectionNumber={3}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
             <div>
               <h3 className="font-bold text-text-primary mb-4 text-lg">Premium Creative Output</h3>
@@ -117,7 +117,7 @@ export default function OurServices() {
         </Section>
 
         {/* Digital Marketing */}
-        <Section title="Digital Marketing Services" darkBg>
+        <Section title="Digital Marketing Services" darkBg sectionNumber={4}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
             <MediaPlaceholder height="h-96" label="Digital Marketing Analytics" />
             <div>
@@ -151,7 +151,7 @@ export default function OurServices() {
         </Section>
 
         {/* Experiential Marketing */}
-        <Section title="Experiential Marketing & Events">
+        <Section title="Experiential Marketing & Events" sectionNumber={5}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="font-bold text-text-primary mb-4 text-lg">Memorable Brand Experiences</h3>

@@ -91,7 +91,7 @@ export default function ServicePage({ params }: { params: { service: string } })
           description={service.description}
         />
 
-        <Section title="What We Deliver">
+        <Section title="What We Deliver" sectionNumber={1}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {service.services.map((svc, idx) => (
               <Card
@@ -103,7 +103,7 @@ export default function ServicePage({ params }: { params: { service: string } })
           </div>
         </Section>
 
-        <Section title="Our Approach" darkBg>
+        <Section title="Our Approach" darkBg sectionNumber={2}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
               <p className="text-text-secondary mb-4">
@@ -132,7 +132,7 @@ export default function ServicePage({ params }: { params: { service: string } })
           </div>
         </Section>
 
-        <Section title="Why Choose TIF">
+        <Section title="Why Choose TIF" sectionNumber={3}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Card
               title="Integrated Services"
@@ -149,7 +149,7 @@ export default function ServicePage({ params }: { params: { service: string } })
           </div>
         </Section>
 
-        <Section title="Ready to Get Started?" darkBg>
+        <Section title="Ready to Get Started?" darkBg sectionNumber={4}>
           <div className="text-center">
             <Link
               href="/contact-us"

@@ -45,7 +45,7 @@ export default function PanoramaBlog() {
           description="Comprehensive thought leadership on marketing, brand strategy, and business transformation."
         />
 
-        <Section title="Featured Articles">
+        <Section title="Featured Articles" sectionNumber={1}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             {articles.slice(0, 2).map((article) => (
               <div key={article.id} className="border border-border-light">
@@ -63,7 +63,7 @@ export default function PanoramaBlog() {
           </div>
         </Section>
 
-        <Section title="All Panorama Articles" darkBg>
+        <Section title="All Panorama Articles" darkBg sectionNumber={2}>
           <div className="grid grid-cols-1 gap-6">
             {articles.map((article) => (
               <div key={article.id} className="border border-border-light p-6 bg-surface-1 hover:bg-surface-2 transition-colors flex justify-between items-start">

@@ -14,7 +14,7 @@ export default function AboutUs() {
         />
 
         {/* Story Section */}
-        <Section title="Our Story">
+        <Section title="Our Story" sectionNumber={1}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
               <p className="text-text-secondary mb-4">
@@ -32,7 +32,7 @@ export default function AboutUs() {
         </Section>
 
         {/* Timeline Section */}
-        <Section title="Our Journey" subtitle="Key milestones in TIF's evolution" darkBg>
+        <Section title="Our Journey" subtitle="Key milestones in TIF's evolution" darkBg sectionNumber={2}>
           <div className="max-w-2xl">
             <TimelineItem
               year="2010"
@@ -78,7 +78,7 @@ export default function AboutUs() {
         </Section>
 
         {/* Core Values */}
-        <Section title="Our Values">
+        <Section title="Our Values" sectionNumber={3}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="border border-border-light p-6 bg-surface-1">
               <h3 className="font-bold text-text-primary mb-3 text-lg">Strategic Thinking</h3>
@@ -108,7 +108,7 @@ export default function AboutUs() {
         </Section>
 
         {/* Global Footprint */}
-        <Section title="Global Footprint" darkBg>
+        <Section title="Global Footprint" darkBg sectionNumber={4}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <h3 className="font-bold text-text-primary mb-2">Sydney, Australia</h3>
@@ -141,7 +141,7 @@ export default function AboutUs() {
         </Section>
 
         {/* CTA */}
-        <Section title="Let's Build Something Together">
+        <Section title="Let's Build Something Together" sectionNumber={5}>
           <div className="text-center">
             <Link
               href="/contact-us"

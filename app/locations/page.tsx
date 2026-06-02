@@ -15,7 +15,7 @@ export default function Locations() {
         />
 
         {/* Australia */}
-        <Section id="australia" title="Australia & Pacific" subtitle="APAC Regional Hub">
+        <Section id="australia" title="Australia & Pacific" subtitle="APAC Regional Hub" sectionNumber={1}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
             <div>
               <h3 className="font-bold text-text-primary mb-4 text-lg">Sydney Office</h3>
@@ -45,7 +45,7 @@ export default function Locations() {
         </Section>
 
         {/* LATAM */}
-        <Section id="latam" title="LATAM Hub" subtitle="Mexico City Partnership Center" darkBg>
+        <Section id="latam" title="LATAM Hub" subtitle="Mexico City Partnership Center" darkBg sectionNumber={2}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
             <MediaPlaceholder height="h-96" label="Mexico City Office & Location" />
             <div>
@@ -75,7 +75,7 @@ export default function Locations() {
         </Section>
 
         {/* USA */}
-        <Section id="usa" title="North America" subtitle="USA Strategic Partnerships">
+        <Section id="usa" title="North America" subtitle="USA Strategic Partnerships" sectionNumber={3}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
             <div>
               <h3 className="font-bold text-text-primary mb-4 text-lg">New York Office</h3>
@@ -105,7 +105,7 @@ export default function Locations() {
         </Section>
 
         {/* Global Integration */}
-        <Section title="Integrated Global Operations">
+        <Section title="Integrated Global Operations" sectionNumber={4}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div className="border border-border-light p-6 bg-surface-1">
               <h3 className="font-bold text-text-primary mb-3">Unified Strategy</h3>
@@ -129,7 +129,7 @@ export default function Locations() {
         </Section>
 
         {/* Capabilities by Location */}
-        <Section title="Service Availability by Location" darkBg>
+        <Section title="Service Availability by Location" darkBg sectionNumber={5}>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
@@ -192,7 +192,7 @@ export default function Locations() {
         </Section>
 
         {/* CTA */}
-        <Section title="Ready to Connect?">
+        <Section title="Ready to Connect?" sectionNumber={6}>
           <div className="text-center">
             <Link
               href="/contact-us"

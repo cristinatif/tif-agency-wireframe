@@ -114,7 +114,7 @@ export default function Toolbox() {
         />
 
         {/* Tools Section */}
-        <Section title="Marketing Tools & Templates" subtitle="Ready-to-use resources to streamline your work">
+        <Section title="Marketing Tools & Templates" subtitle="Ready-to-use resources to streamline your work" sectionNumber={1}>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {resources.map((resource) => (
               <div key={resource.id} className="border border-border-light p-6 bg-surface-1 hover:bg-surface-2 transition-colors">
@@ -133,7 +133,7 @@ export default function Toolbox() {
         </Section>
 
         {/* Blogs Section */}
-        <Section title="Insights & Articles" subtitle="Latest thinking on marketing and strategy" darkBg>
+        <Section title="Insights & Articles" subtitle="Latest thinking on marketing and strategy" darkBg sectionNumber={2}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             {blogs.map((blog) => (
               <div key={blog.id} className="border border-border-light bg-surface-1">
@@ -166,7 +166,7 @@ export default function Toolbox() {
         </Section>
 
         {/* Reports Section */}
-        <Section title="Research Reports" subtitle="In-depth analysis and market research">
+        <Section title="Research Reports" subtitle="In-depth analysis and market research" sectionNumber={3}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {reports.map((report) => (
               <div key={report.id} className="border border-border-light p-6 bg-surface-1">
@@ -194,7 +194,7 @@ export default function Toolbox() {
         </Section>
 
         {/* Panorama Section */}
-        <Section title="Panorama Blogs" subtitle="Extended insights and thought leadership" darkBg>
+        <Section title="Panorama Blogs" subtitle="Extended insights and thought leadership" darkBg sectionNumber={4}>
           <div className="max-w-3xl mx-auto">
             <div className="border border-border-light p-8 bg-surface-1">
               <h3 className="font-bold text-text-primary mb-4 text-lg">Comprehensive Industry Analysis</h3>
@@ -223,7 +223,7 @@ export default function Toolbox() {
         </Section>
 
         {/* Newsletter Section */}
-        <Section title="Stay Updated">
+        <Section title="Stay Updated" sectionNumber={5}>
           <div className="max-w-2xl mx-auto border border-border-light p-8 bg-surface-1 text-center">
             <h2 className="font-bold text-text-primary mb-3 text-xl">Subscribe to Our Newsletter</h2>
             <p className="text-text-secondary mb-6">
@@ -250,7 +250,7 @@ export default function Toolbox() {
         </Section>
 
         {/* Downloadable Assets */}
-        <Section title="Downloadable Resources" darkBg>
+        <Section title="Downloadable Resources" darkBg sectionNumber={6}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="border border-border-light p-6 bg-surface-1">
               <h3 className="font-bold text-text-primary mb-2">Brand Guidelines Template</h3>
@@ -295,7 +295,7 @@ export default function Toolbox() {
         </Section>
 
         {/* CTA */}
-        <Section title="Need Something Specific?">
+        <Section title="Need Something Specific?" sectionNumber={7}>
           <div className="text-center">
             <Link
               href="/contact-us"

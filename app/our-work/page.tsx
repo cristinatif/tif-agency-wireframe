@@ -60,7 +60,7 @@ export default function OurWork() {
         />
 
         {/* Featured Work */}
-        <Section title="Featured Projects">
+        <Section title="Featured Projects" sectionNumber={1}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {caseStudies.slice(0, 2).map((study) => (
               <div key={study.id} className="border border-border-light">
@@ -89,7 +89,7 @@ export default function OurWork() {
         </Section>
 
         {/* Case Studies Grid */}
-        <Section title="All Case Studies" darkBg>
+        <Section title="All Case Studies" darkBg sectionNumber={2}>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {caseStudies.map((study) => (
               <div key={study.id} className="bg-surface-1 border border-border-light hover:bg-surface-2 transition-colors">
@@ -111,7 +111,7 @@ export default function OurWork() {
         </Section>
 
         {/* Work by Category */}
-        <Section title="Work by Discipline">
+        <Section title="Work by Discipline" sectionNumber={3}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             <div className="border border-border-light p-6 bg-surface-1">
               <h3 className="font-bold text-text-primary mb-3">Brand Strategy & Positioning</h3>
@@ -176,7 +176,7 @@ export default function OurWork() {
         </Section>
 
         {/* Results Summary */}
-        <Section title="By The Numbers" darkBg>
+        <Section title="By The Numbers" darkBg sectionNumber={4}>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div className="text-center">
               <div className="text-4xl font-bold text-text-primary mb-2">50+</div>
@@ -198,7 +198,7 @@ export default function OurWork() {
         </Section>
 
         {/* CTA */}
-        <Section title="Ready to Start Your Project?">
+        <Section title="Ready to Start Your Project?" sectionNumber={5}>
           <div className="text-center">
             <Link
               href="/contact-us"

@@ -43,7 +43,7 @@ export default function ContactUs() {
         />
 
         {/* Contact Form & Info */}
-        <Section title="Contact Information">
+        <Section title="Contact Information" sectionNumber={1}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {/* Sydney */}
             <div className="border border-border-light p-6 bg-surface-1">
@@ -199,7 +199,7 @@ export default function ContactUs() {
         </Section>
 
         {/* Additional Info */}
-        <Section title="Other Ways to Reach Us" darkBg>
+        <Section title="Other Ways to Reach Us" darkBg sectionNumber={2}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <h3 className="font-bold text-text-primary mb-3">General Inquiries</h3>
