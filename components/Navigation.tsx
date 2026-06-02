@@ -7,6 +7,7 @@ import { HiChevronDown } from 'react-icons/hi2'
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
+  const [language, setLanguage] = useState<'en' | 'es'>('en')
 
   const mainLinks = [
     { href: '/', label: 'Home' },
@@ -35,7 +36,7 @@ export function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex gap-8 items-center">
+          <div className="hidden md:flex gap-6 items-center">
             {mainLinks.map((link) => {
               if (link.label === 'Our Services') {
                 return (
@@ -73,6 +74,19 @@ export function Navigation() {
                   </div>
                 )
               }
+
+              if (link.label === 'Contact Us') {
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="px-4 py-2 bg-text-primary text-background font-semibold rounded hover:opacity-80 transition-opacity text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                )
+              }
+
               return (
                 <Link
                   key={link.href}
@@ -83,6 +97,31 @@ export function Navigation() {
                 </Link>
               )
             })}
+
+            {/* Language Switch */}
+            <div className="flex items-center gap-1 border-l border-gray-300 pl-6 ml-2">
+              <button
+                onClick={() => setLanguage('en')}
+                className={`px-3 py-1 text-sm font-semibold transition-colors ${
+                  language === 'en'
+                    ? 'text-text-primary bg-gray-100 rounded'
+                    : 'text-text-tertiary hover:text-text-secondary'
+                }`}
+              >
+                EN
+              </button>
+              <span className="text-gray-300">|</span>
+              <button
+                onClick={() => setLanguage('es')}
+                className={`px-3 py-1 text-sm font-semibold transition-colors ${
+                  language === 'es'
+                    ? 'text-text-primary bg-gray-100 rounded'
+                    : 'text-text-tertiary hover:text-text-secondary'
+                }`}
+              >
+                ES
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -129,6 +168,20 @@ export function Navigation() {
                   </div>
                 )
               }
+
+              if (link.label === 'Contact Us') {
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="block px-4 py-2 bg-text-primary text-background font-semibold rounded hover:opacity-80 transition-opacity text-sm text-center"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              }
+
               return (
                 <Link
                   key={link.href}
@@ -140,6 +193,31 @@ export function Navigation() {
                 </Link>
               )
             })}
+
+            {/* Mobile Language Switch */}
+            <div className="flex items-center justify-center gap-1 border-t border-gray-300 pt-4 mt-4">
+              <button
+                onClick={() => setLanguage('en')}
+                className={`px-3 py-1 text-sm font-semibold transition-colors ${
+                  language === 'en'
+                    ? 'text-text-primary bg-gray-100 rounded'
+                    : 'text-text-tertiary'
+                }`}
+              >
+                EN
+              </button>
+              <span className="text-gray-300">|</span>
+              <button
+                onClick={() => setLanguage('es')}
+                className={`px-3 py-1 text-sm font-semibold transition-colors ${
+                  language === 'es'
+                    ? 'text-text-primary bg-gray-100 rounded'
+                    : 'text-text-tertiary'
+                }`}
+              >
+                ES
+              </button>
+            </div>
           </div>
         )}
       </div>

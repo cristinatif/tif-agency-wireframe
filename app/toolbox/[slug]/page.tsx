@@ -23,6 +23,7 @@ interface BlogContent {
   author?: string
   readTime?: string
   excerpt: string
+  description?: string
   sections?: ContentSection[]
   faqs?: Array<{ question: string; answer: string }>
   relatedService?: { slug: string; name: string }
@@ -229,6 +230,7 @@ export default function ToolboxContent() {
       pages: 42,
       preview: 'Report_Integrated_Marketing_2024',
       excerpt: 'How integrated strategies compound results vs. siloed approaches',
+      description: 'This comprehensive 42-page report analyzes how brands that integrate their marketing strategies across channels achieve 3.5x better ROI compared to siloed approaches. Includes detailed case studies, implementation frameworks, and actionable metrics for measuring cross-channel performance.',
       content: 'Report content preview. Full report available for download after form submission.',
     },
     'brand-strategy-template-workbook': {
@@ -238,6 +240,7 @@ export default function ToolboxContent() {
       date: '2024-11-20',
       fileType: 'PDF + Google Sheets',
       excerpt: 'Complete template for developing positioning and messaging',
+      description: 'This practical workbook includes step-by-step worksheets for crafting your brand positioning, developing core messaging pillars, and creating a brand voice guide. Designed to be completed in 4-6 weeks, it\'s used by teams of all sizes to establish a clear, differentiated brand identity.',
       content: 'Asset preview. Full template available for download after form submission.',
     },
   }
@@ -405,6 +408,13 @@ export default function ToolboxContent() {
         {/* Content - Gated (Reports & Downloadable Assets) */}
         {isGatedContent && (
           <Section sectionNumber={1}>
+            {content.description && (
+              <div className="max-w-4xl mb-12">
+                <p className="text-text-secondary leading-relaxed">
+                  {content.description}
+                </p>
+              </div>
+            )}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
               {/* Preview */}
               <div>
