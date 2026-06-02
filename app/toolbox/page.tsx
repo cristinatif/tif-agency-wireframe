@@ -1,308 +1,352 @@
+'use client'
+
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 import { Hero, Section } from '@/components/SectionComponents'
 import Link from 'next/link'
+import { useState } from 'react'
 
 export default function Toolbox() {
+  const [activeFilter, setActiveFilter] = useState('all')
+
+  const contentTypes = [
+    { id: 'all', label: 'All Resources' },
+    { id: 'blogs', label: 'Blogs' },
+    { id: 'panorama', label: 'Panorama Blogs' },
+    { id: 'reports', label: 'Reports' },
+    { id: 'newsletters', label: 'Newsletters' },
+    { id: 'downloadable', label: 'Downloadable Assets' },
+  ]
+
   const resources = [
+    // Blogs - 4 items
     {
       id: 1,
-      title: 'Strategic Marketing Audit Framework',
-      category: 'Tools',
-      description: 'Comprehensive checklist for evaluating marketing strategy effectiveness and identifying optimization opportunities.',
-      type: 'Downloadable Guide',
+      type: 'blogs',
+      title: 'The Future of Brand Strategy in 2025',
+      subtitle: 'How consumer behavior shifts are reshaping brand positioning',
+      service: 'Brand Strategy',
+      date: '2024-11-15',
+      author: 'Sarah Johnson',
+      readTime: '8 min read',
+      excerpt: 'Understanding the latest trends in consumer psychology and how forward-thinking brands are adapting their strategies.',
+      slug: 'future-brand-strategy-2025',
     },
     {
       id: 2,
-      title: 'Brand Positioning Template',
-      category: 'Tools',
-      description: 'Structured template for developing clear brand positioning statements and competitive differentiation.',
-      type: 'Downloadable Template',
+      type: 'blogs',
+      title: 'SEO in the Age of AI: What Actually Works',
+      subtitle: 'Practical strategies for organic visibility when AI changes everything',
+      service: 'Digital Marketing',
+      date: '2024-11-10',
+      author: 'Mike Chen',
+      readTime: '12 min read',
+      excerpt: 'AI-powered search is here. Learn how to optimize for visibility without relying on outdated techniques.',
+      slug: 'seo-age-of-ai',
     },
     {
       id: 3,
-      title: 'Digital Marketing ROI Calculator',
-      category: 'Tools',
-      description: 'Interactive tool for calculating and forecasting ROI across digital marketing channels.',
-      type: 'Calculator',
+      type: 'blogs',
+      title: 'Creative Direction in a Fractured Media Landscape',
+      subtitle: 'Building cohesive brand experiences across 20+ channels',
+      service: 'Creative Services',
+      date: '2024-11-05',
+      author: 'Elena Rodriguez',
+      readTime: '10 min read',
+      excerpt: 'The challenge isn\'t creating good creative anymore. It\'s creating consistent creative across an impossible number of platforms.',
+      slug: 'creative-direction-media-landscape',
     },
     {
       id: 4,
-      title: 'Market Research Planning Guide',
-      category: 'Guides',
-      description: 'Step-by-step guide for planning and executing effective market research studies.',
-      type: 'Guide',
+      type: 'blogs',
+      title: 'Market Research That Actually Predicts Outcomes',
+      subtitle: 'Moving beyond surveys to predictive consumer insights',
+      service: 'Research Lab',
+      date: '2024-10-28',
+      author: 'David Park',
+      readTime: '9 min read',
+      excerpt: 'Traditional market research is slow. Here\'s how leading brands are using data science to predict market moves.',
+      slug: 'market-research-predictive-outcomes',
     },
+
+    // Panorama Blogs - 3 items
     {
       id: 5,
-      title: 'Campaign Performance Dashboard Template',
-      category: 'Tools',
-      description: 'Ready-to-use template for tracking and reporting marketing campaign performance metrics.',
-      type: 'Excel Template',
+      type: 'panorama',
+      title: 'Panorama: Consumer Sentiment Q4 2024',
+      subtitle: 'Quarterly insights across 15 markets and 5,000+ consumers',
+      service: 'Research Lab',
+      date: '2024-11-20',
+      author: 'TIF Research Team',
+      readTime: '15 min read',
+      excerpt: 'Comprehensive quarterly analysis of consumer sentiment, spending intentions, and brand trust across key markets.',
+      slug: 'panorama-consumer-sentiment-q4-2024',
     },
     {
       id: 6,
-      title: 'Brand Voice & Messaging Guide',
-      category: 'Guides',
-      description: 'Framework for developing consistent brand voice, tone, and messaging across all channels.',
-      type: 'Guide',
+      type: 'panorama',
+      title: 'Panorama: Digital Marketing Trends 2025',
+      subtitle: 'What\'s working, what\'s dying, and what\'s next in paid digital',
+      service: 'Digital Marketing',
+      date: '2024-11-15',
+      author: 'TIF Research Team',
+      readTime: '12 min read',
+      excerpt: 'In-depth analysis of digital marketing performance, emerging channels, and budget allocation strategies for 2025.',
+      slug: 'panorama-digital-marketing-trends-2025',
     },
-  ]
+    {
+      id: 7,
+      type: 'panorama',
+      title: 'Panorama: Brand Health Across Industries',
+      subtitle: 'How brands are performing in their categories right now',
+      service: 'Brand Strategy',
+      date: '2024-11-01',
+      author: 'TIF Research Team',
+      readTime: '14 min read',
+      excerpt: 'Competitive brand analysis across 10 industries. See who\'s winning, why, and what moves are working.',
+      slug: 'panorama-brand-health-industries',
+    },
 
-  const blogs = [
+    // Reports - 3 items (gated)
     {
-      id: 1,
-      title: 'The Future of Brand Strategy in 2024',
-      category: 'Strategy',
-      date: 'March 15, 2024',
-      excerpt: 'Exploring emerging trends in brand strategy, consumer behavior shifts, and opportunities for market leaders.',
-      readTime: '8 min read',
+      id: 8,
+      type: 'reports',
+      title: 'The Integrated Marketing ROI Report 2024',
+      subtitle: 'How integrated strategies compound results vs. siloed approaches',
+      service: 'Integrated Solutions',
+      date: '2024-10-30',
+      pages: 42,
+      downloadUrl: '#',
+      preview: 'Report_Integrated_Marketing_2024',
+      slug: 'integrated-marketing-roi-report-2024',
     },
     {
-      id: 2,
-      title: 'Digital Marketing ROI: What Actually Works',
-      category: 'Performance Marketing',
-      date: 'March 8, 2024',
-      excerpt: 'Data-driven analysis of which digital marketing channels deliver the highest ROI and how to optimize spend.',
-      readTime: '10 min read',
+      id: 9,
+      type: 'reports',
+      title: 'Market Opportunity Assessment: LATAM Tech',
+      subtitle: 'Sizing and strategy for technology companies entering Latin America',
+      service: 'Research Lab',
+      date: '2024-10-15',
+      pages: 68,
+      downloadUrl: '#',
+      preview: 'Report_LATAM_Tech_Opportunity',
+      slug: 'market-opportunity-latam-tech',
     },
     {
-      id: 3,
-      title: 'Creative Excellence in B2B Marketing',
-      category: 'Creative',
-      date: 'February 28, 2024',
-      excerpt: 'Why creative quality matters in B2B contexts and strategies for standing out in competitive markets.',
+      id: 10,
+      type: 'reports',
+      title: 'The Modern Brand Playbook: Strategic Framework',
+      subtitle: '12-step framework for brand transformation and market positioning',
+      service: 'Brand Strategy',
+      date: '2024-10-01',
+      pages: 56,
+      downloadUrl: '#',
+      preview: 'Report_Brand_Playbook',
+      slug: 'modern-brand-playbook-framework',
+    },
+
+    // Newsletters converted to posts - 2 items
+    {
+      id: 11,
+      type: 'newsletters',
+      title: 'TIF Weekly: Growth Levers in B2B SaaS',
+      subtitle: 'Key insights from this week\'s newsletter',
+      service: 'Digital Marketing',
+      date: '2024-11-18',
+      author: 'The TIF Team',
+      readTime: '6 min read',
+      excerpt: 'This week we break down the top 3 growth levers that are working for B2B SaaS companies right now.',
+      slug: 'tif-weekly-growth-levers-saas',
+    },
+    {
+      id: 12,
+      type: 'newsletters',
+      title: 'TIF Weekly: The State of Brand Loyalty',
+      subtitle: 'Why consumers abandon brands (and how to prevent it)',
+      service: 'Brand Strategy',
+      date: '2024-11-11',
+      author: 'The TIF Team',
       readTime: '7 min read',
+      excerpt: 'New research on brand loyalty reveals surprising insights about why consumers switch brands.',
+      slug: 'tif-weekly-brand-loyalty-state',
+    },
+
+    // Downloadable Assets - 3 items (gated)
+    {
+      id: 13,
+      type: 'downloadable',
+      title: 'Brand Strategy Template & Workbook',
+      subtitle: 'Complete template for developing positioning and messaging',
+      service: 'Brand Strategy',
+      date: '2024-11-20',
+      fileType: 'PDF + Google Sheets',
+      slug: 'brand-strategy-template-workbook',
+    },
+    {
+      id: 14,
+      type: 'downloadable',
+      title: 'Digital Marketing Audit Checklist',
+      subtitle: '50-point comprehensive audit of your digital marketing function',
+      service: 'Digital Marketing',
+      date: '2024-11-15',
+      fileType: 'PDF + Spreadsheet',
+      slug: 'digital-marketing-audit-checklist',
+    },
+    {
+      id: 15,
+      type: 'downloadable',
+      title: 'Market Research Template & Methodology',
+      subtitle: 'Framework and templates for conducting primary market research',
+      service: 'Research Lab',
+      date: '2024-11-10',
+      fileType: 'PDF + Workbook',
+      slug: 'market-research-template-methodology',
     },
   ]
 
-  const reports = [
-    {
-      id: 1,
-      title: 'Asia-Pacific Marketing Trends Report 2024',
-      category: 'Market Research',
-      date: 'Q1 2024',
-      description: 'Comprehensive analysis of marketing trends, consumer behavior, and opportunities across APAC markets.',
-      pages: '45 pages',
-    },
-    {
-      id: 2,
-      title: 'Digital Marketing Benchmark Study',
-      category: 'Performance Analysis',
-      date: 'Q1 2024',
-      description: 'Industry benchmark data comparing digital marketing performance across sectors and regions.',
-      pages: '38 pages',
-    },
-    {
-      id: 3,
-      title: 'Consumer Insights: Brand Loyalty 2024',
-      category: 'Consumer Research',
-      date: 'Q2 2024',
-      description: 'Deep dive into what drives brand loyalty and how to build lasting customer relationships.',
-      pages: '52 pages',
-    },
-  ]
+  const filtered = activeFilter === 'all'
+    ? resources
+    : resources.filter(r => r.type === activeFilter)
+
+  const isGatedContent = (type: string) => ['reports', 'downloadable'].includes(type)
 
   return (
     <>
       <Navigation />
       <main className="pt-nav-height">
         <Hero
-          title="Toolbox & Insights Hub"
-          subtitle="Resources to Drive Better Marketing Decisions"
-          description="Explore our collection of tools, guides, research reports, and industry insights designed to help you succeed."
+          title="Toolbox"
+          subtitle="Resources & Knowledge"
+          description="Strategic guides, research reports, and insights to help you grow your brand and drive results."
         />
 
-        {/* Tools Section */}
-        <Section title="Marketing Tools & Templates" subtitle="Ready-to-use resources to streamline your work" sectionNumber={1}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {resources.map((resource) => (
-              <div key={resource.id} className="border border-border-light p-6 bg-surface-1 hover:bg-surface-2 transition-colors">
-                <p className="text-text-tertiary text-xs font-bold mb-2">{resource.category}</p>
-                <h3 className="font-bold text-text-primary mb-2 text-sm">{resource.title}</h3>
-                <p className="text-text-secondary text-xs mb-4">{resource.description}</p>
-                <div className="flex justify-between items-center">
-                  <span className="text-text-tertiary text-xs">{resource.type}</span>
-                  <Link href="#" className="text-text-primary hover:text-text-secondary text-xs underline font-semibold">
-                    Download →
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Section>
-
-        {/* Blogs Section */}
-        <Section title="Insights & Articles" subtitle="Latest thinking on marketing and strategy" darkBg sectionNumber={2}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            {blogs.map((blog) => (
-              <div key={blog.id} className="border border-border-light bg-surface-1">
-                <div className="h-48 bg-surface-3 border-b border-border-light flex items-center justify-center">
-                  <span className="text-text-tertiary text-sm">[Article Image]</span>
-                </div>
-                <div className="p-6">
-                  <p className="text-text-tertiary text-xs font-bold mb-2">{blog.category}</p>
-                  <h3 className="font-bold text-text-primary mb-2">{blog.title}</h3>
-                  <p className="text-text-secondary text-sm mb-4">{blog.excerpt}</p>
-                  <div className="flex justify-between items-center mb-4 text-xs text-text-tertiary">
-                    <span>{blog.date}</span>
-                    <span>{blog.readTime}</span>
-                  </div>
-                  <Link href="#" className="text-text-primary hover:text-text-secondary text-sm underline font-semibold">
-                    Read Article →
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="text-center">
-            <Link
-              href="/blogs"
-              className="inline-block border border-text-primary px-8 py-3 text-text-primary hover:bg-hover transition-colors font-semibold"
-            >
-              View All Articles
-            </Link>
-          </div>
-        </Section>
-
-        {/* Reports Section */}
-        <Section title="Research Reports" subtitle="In-depth analysis and market research" sectionNumber={3}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {reports.map((report) => (
-              <div key={report.id} className="border border-border-light p-6 bg-surface-1">
-                <p className="text-text-tertiary text-xs font-bold mb-1">{report.category}</p>
-                <p className="text-text-tertiary text-xs mb-3">{report.date}</p>
-                <h3 className="font-bold text-text-primary mb-3">{report.title}</h3>
-                <p className="text-text-secondary text-sm mb-4">{report.description}</p>
-                <div className="flex justify-between items-center">
-                  <span className="text-text-tertiary text-xs">{report.pages}</span>
-                  <Link href="#" className="text-text-primary hover:text-text-secondary text-sm underline font-semibold">
-                    Download →
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="text-center">
-            <Link
-              href="/reports"
-              className="inline-block border border-text-primary px-8 py-3 text-text-primary hover:bg-hover transition-colors font-semibold"
-            >
-              View All Reports
-            </Link>
-          </div>
-        </Section>
-
-        {/* Panorama Section */}
-        <Section title="Panorama Blogs" subtitle="Extended insights and thought leadership" darkBg sectionNumber={4}>
-          <div className="max-w-3xl mx-auto">
-            <div className="border border-border-light p-8 bg-surface-1">
-              <h3 className="font-bold text-text-primary mb-4 text-lg">Comprehensive Industry Analysis</h3>
-              <p className="text-text-secondary mb-4">
-                Our Panorama blog series provides deep, comprehensive analysis of major industry trends, market shifts, and strategic opportunities. Each article is researched and written by our team of strategy experts.
-              </p>
-              <p className="text-text-secondary mb-6">
-                Topics covered include:
-              </p>
-              <ul className="space-y-2 text-text-secondary text-sm mb-6">
-                <li>• Market dynamics and competitive analysis</li>
-                <li>• Consumer behavior and trend forecasting</li>
-                <li>• Digital transformation strategies</li>
-                <li>• Brand evolution and positioning trends</li>
-                <li>• International market opportunities</li>
-                <li>• Innovation and emerging technologies</li>
-              </ul>
-              <Link
-                href="/panorama-blogs"
-                className="inline-block border border-text-primary px-8 py-3 text-text-primary hover:bg-hover transition-colors font-semibold"
-              >
-                Explore Panorama
-              </Link>
-            </div>
-          </div>
-        </Section>
-
-        {/* Newsletter Section */}
-        <Section title="Stay Updated" sectionNumber={5}>
-          <div className="max-w-2xl mx-auto border border-border-light p-8 bg-surface-1 text-center">
-            <h2 className="font-bold text-text-primary mb-3 text-xl">Subscribe to Our Newsletter</h2>
-            <p className="text-text-secondary mb-6">
-              Get monthly insights, research findings, and strategic thinking delivered to your inbox. No spam, just valuable content.
-            </p>
-            <form className="flex gap-2">
-              <input
-                type="email"
-                placeholder="your@email.com"
-                className="flex-grow border border-border-medium p-3 text-text-primary bg-background focus:outline-none focus:border-text-primary"
-                required
-              />
+        {/* Filter Section */}
+        <Section sectionNumber={1}>
+          <div className="flex overflow-x-auto gap-3 pb-4 -mx-4 px-4 md:mx-0 md:px-0 md:flex-wrap md:justify-start">
+            {contentTypes.map((type) => (
               <button
-                type="submit"
-                className="bg-text-primary text-background px-8 py-3 font-semibold hover:opacity-80 transition-opacity"
+                key={type.id}
+                onClick={() => setActiveFilter(type.id)}
+                className={`px-4 py-2 text-sm whitespace-nowrap rounded transition-colors font-medium ${
+                  activeFilter === type.id
+                    ? 'bg-text-primary text-background'
+                    : 'bg-gray-100 text-text-primary hover:bg-gray-200'
+                }`}
               >
-                Subscribe
+                {type.label}
               </button>
-            </form>
-            <p className="text-text-tertiary text-xs mt-4">
-              We respect your privacy. Unsubscribe at any time.
-            </p>
+            ))}
           </div>
         </Section>
 
-        {/* Downloadable Assets */}
-        <Section title="Downloadable Resources" darkBg sectionNumber={6}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="border border-border-light p-6 bg-surface-1">
-              <h3 className="font-bold text-text-primary mb-2">Brand Guidelines Template</h3>
-              <p className="text-text-secondary text-sm mb-4">
-                Complete template for developing comprehensive brand guidelines covering voice, visual identity, and application standards.
-              </p>
-              <Link href="#" className="text-text-primary hover:text-text-secondary text-sm underline font-semibold">
-                Download PDF →
-              </Link>
-            </div>
+        {/* Resources Grid */}
+        <Section sectionNumber={2} title={activeFilter === 'all' ? 'All Resources' : `${filtered[0]?.service || ''}`}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filtered.map((resource) => (
+              <Link
+                key={resource.id}
+                href={`/toolbox/${resource.slug}`}
+                className="group border border-gray-200 overflow-hidden hover:shadow-lg transition-all flex flex-col"
+              >
+                {/* Card Header */}
+                <div className="bg-gray-50 p-6 border-b border-gray-200">
+                  <div className="flex items-start justify-between gap-3 mb-3">
+                    <div className="inline-block bg-blue-50 px-3 py-1 rounded">
+                      <p className="text-text-tertiary text-xs font-bold uppercase">
+                        {resource.type === 'panorama' ? 'Panorama' :
+                         resource.type === 'downloadable' ? 'Asset' :
+                         resource.type === 'newsletters' ? 'Newsletter' :
+                         resource.type === 'reports' ? 'Report' :
+                         'Blog'}
+                      </p>
+                    </div>
+                    {isGatedContent(resource.type) && (
+                      <div className="text-xs font-bold text-orange-600 bg-orange-50 px-2 py-1 rounded">
+                        Gated
+                      </div>
+                    )}
+                  </div>
 
-            <div className="border border-border-light p-6 bg-surface-1">
-              <h3 className="font-bold text-text-primary mb-2">Marketing Metrics Handbook</h3>
-              <p className="text-text-secondary text-sm mb-4">
-                Reference guide to key marketing metrics, KPIs, and how to interpret data for strategic decision-making.
-              </p>
-              <Link href="#" className="text-text-primary hover:text-text-secondary text-sm underline font-semibold">
-                Download PDF →
-              </Link>
-            </div>
+                  {resource.type === 'reports' && (
+                    <div className="text-2xl font-bold text-text-primary mb-2">{resource.pages}</div>
+                  )}
+                  {resource.type === 'downloadable' && (
+                    <div className="text-sm font-semibold text-text-secondary mb-2">{resource.fileType}</div>
+                  )}
+                </div>
 
-            <div className="border border-border-light p-6 bg-surface-1">
-              <h3 className="font-bold text-text-primary mb-2">Competitive Analysis Workbook</h3>
-              <p className="text-text-secondary text-sm mb-4">
-                Interactive workbook for conducting thorough competitive analysis and developing differentiation strategies.
-              </p>
-              <Link href="#" className="text-text-primary hover:text-text-secondary text-sm underline font-semibold">
-                Download Excel →
-              </Link>
-            </div>
+                {/* Card Body */}
+                <div className="p-6 flex-1 flex flex-col">
+                  <h3 className="font-bold text-text-primary mb-2 text-sm group-hover:text-text-secondary transition-colors">
+                    {resource.title}
+                  </h3>
+                  <p className="text-text-secondary text-xs mb-4">{resource.subtitle}</p>
 
-            <div className="border border-border-light p-6 bg-surface-1">
-              <h3 className="font-bold text-text-primary mb-2">Campaign Planning Calendar</h3>
-              <p className="text-text-secondary text-sm mb-4">
-                Annual campaign planning template with timelines, dependencies, and integrated cross-channel planning.
-              </p>
-              <Link href="#" className="text-text-primary hover:text-text-secondary text-sm underline font-semibold">
-                Download Excel →
+                  <div className="mt-auto pt-4 border-t border-gray-200">
+                    <div className="flex items-center justify-between text-xs text-text-tertiary mb-3">
+                      <span>{resource.date}</span>
+                      {(resource.readTime || resource.fileType) && (
+                        <span>{resource.readTime || resource.fileType}</span>
+                      )}
+                    </div>
+                    <div className="flex items-center gap-2 text-text-primary font-semibold text-xs group-hover:translate-x-1 transition-transform">
+                      {isGatedContent(resource.type) ? 'Download →' : 'Read Article →'}
+                    </div>
+                  </div>
+                </div>
               </Link>
-            </div>
+            ))}
           </div>
         </Section>
 
-        {/* CTA */}
-        <Section title="Need Something Specific?" sectionNumber={7}>
-          <div className="text-center">
-            <Link
-              href="/contact-us"
-              className="inline-block bg-text-primary text-background px-10 py-4 hover:opacity-80 transition-opacity font-semibold"
-            >
-              Get in Touch
-            </Link>
+        {/* CTA Section */}
+        <Section sectionNumber={3} darkBg title="Get Insights Delivered Weekly">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-text-secondary text-lg leading-relaxed mb-8">
+                Subscribe to the TIF Weekly newsletter and get curated insights, research findings, and strategic frameworks delivered to your inbox every week.
+              </p>
+              <div className="space-y-4">
+                <div className="flex gap-3">
+                  <div className="text-text-primary font-bold flex-shrink-0">✓</div>
+                  <p className="text-text-secondary text-sm">Weekly strategic insights & market trends</p>
+                </div>
+                <div className="flex gap-3">
+                  <div className="text-text-primary font-bold flex-shrink-0">✓</div>
+                  <p className="text-text-secondary text-sm">Early access to new resources and reports</p>
+                </div>
+                <div className="flex gap-3">
+                  <div className="text-text-primary font-bold flex-shrink-0">✓</div>
+                  <p className="text-text-secondary text-sm">Exclusive data and research for subscribers</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="border border-gray-200 p-8 bg-white">
+              <h3 className="font-bold text-text-primary mb-6">Subscribe to TIF Weekly</h3>
+              <form className="space-y-4">
+                <input
+                  type="email"
+                  placeholder="your@email.com"
+                  className="w-full border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-text-primary"
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="Company Name"
+                  className="w-full border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-text-primary"
+                />
+                <button
+                  type="submit"
+                  className="w-full bg-text-primary text-background px-4 py-3 font-semibold text-sm hover:opacity-80 transition-opacity"
+                >
+                  Subscribe
+                </button>
+              </form>
+              <p className="text-text-tertiary text-xs mt-4">
+                We respect your privacy. Unsubscribe anytime.
+              </p>
+            </div>
           </div>
         </Section>
       </main>
