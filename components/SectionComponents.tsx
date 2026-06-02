@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import { HiArrowRight, HiCheckCircle, HiLightBulb } from 'react-icons/hi2'
 
 interface HeroProps {
   title: string
@@ -51,12 +52,18 @@ interface CardProps {
 export function Card({ title, description, details }: CardProps) {
   return (
     <div className="bg-gray-50 border border-gray-200 p-6 hover:bg-gray-100 transition-colors shadow-md hover:shadow-lg">
-      <h3 className="font-bold text-text-primary mb-2">{title}</h3>
+      <div className="flex items-start gap-3 mb-2">
+        <HiCheckCircle className="text-text-primary flex-shrink-0 mt-1" size={20} />
+        <h3 className="font-bold text-text-primary">{title}</h3>
+      </div>
       <p className="text-text-secondary text-sm mb-4">{description}</p>
       {details && (
-        <ul className="space-y-1 text-xs text-text-tertiary">
+        <ul className="space-y-2 text-xs text-text-tertiary ml-7">
           {details.map((detail, idx) => (
-            <li key={idx}>• {detail}</li>
+            <li key={idx} className="flex items-start gap-2">
+              <span className="text-text-primary">→</span>
+              <span>{detail}</span>
+            </li>
           ))}
         </ul>
       )}
@@ -87,9 +94,10 @@ interface TimelineItemProps {
 
 export function TimelineItem({ year, title, description }: TimelineItemProps) {
   return (
-    <div className="flex gap-4 pb-8">
+    <div className="flex gap-4 pb-8 relative">
       <div className="w-24 font-bold text-text-primary flex-shrink-0">{year}</div>
-      <div className="flex-grow border-l border-gray-200 pl-4">
+      <div className="flex-grow border-l border-gray-200 pl-4 relative">
+        <div className="absolute -left-2.5 top-1 w-4 h-4 bg-text-primary rounded-full border-2 border-white"></div>
         <h4 className="font-bold text-text-primary mb-2">{title}</h4>
         <p className="text-text-secondary text-sm">{description}</p>
       </div>
@@ -106,7 +114,7 @@ interface ServiceBoxProps {
 export function ServiceBox({ number, title, description }: ServiceBoxProps) {
   return (
     <div className="border border-gray-200 p-6 bg-gray-50 shadow-md hover:shadow-lg transition-shadow">
-      <div className="text-3xl font-bold text-gray-500 mb-2">{number}</div>
+      <div className="flex items-center justify-center w-10 h-10 bg-text-primary text-white rounded-full mb-4 font-bold text-lg">{number}</div>
       <h3 className="font-bold text-text-primary mb-2">{title}</h3>
       <p className="text-text-secondary text-sm">{description}</p>
     </div>

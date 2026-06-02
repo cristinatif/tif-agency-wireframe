@@ -1,6 +1,7 @@
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 import { Hero, Section, Card, MediaPlaceholder, ServiceBox } from '@/components/SectionComponents'
+import { ServiceIcon } from '@/components/ServiceIcons'
 import Link from 'next/link'
 
 export default function OurServices() {
@@ -18,6 +19,9 @@ export default function OurServices() {
         <Section id="research" title="Research Lab" subtitle="Data-Driven Insights & Strategy" sectionNumber={1}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
             <div>
+              <div className="mb-4">
+                <ServiceIcon service="research-lab" size={40} />
+              </div>
               <h3 className="font-bold text-text-primary mb-4 text-lg">Strategic Research Foundation</h3>
               <p className="text-text-secondary mb-4">
                 Every successful strategy begins with deep market understanding. Our research lab combines qualitative and quantitative methodologies to uncover consumer insights, market opportunities, and competitive positioning.
@@ -53,6 +57,9 @@ export default function OurServices() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
             <MediaPlaceholder height="h-96" label="Strategy Development Visual" />
             <div>
+              <div className="mb-4">
+                <ServiceIcon service="brand-strategy" size={40} />
+              </div>
               <h3 className="font-bold text-text-primary mb-4 text-lg">Strategic Brand Development</h3>
               <p className="text-text-secondary mb-4">
                 We develop comprehensive brand strategies and marketing plans that position your organization for sustainable growth. Our approach integrates brand positioning, market strategy, and integrated marketing planning.
@@ -86,6 +93,9 @@ export default function OurServices() {
         <Section id="creative" title="Creative Services" subtitle="Design, AV, & Digital Excellence" sectionNumber={3}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
             <div>
+              <div className="mb-4">
+                <ServiceIcon service="creative-studio" size={40} />
+              </div>
               <h3 className="font-bold text-text-primary mb-4 text-lg">Premium Creative Output</h3>
               <p className="text-text-secondary mb-4">
                 From concept to execution, our creative studio delivers award-winning design, audiovisual content, and digital experiences. We combine artistic vision with strategic thinking.
@@ -121,6 +131,9 @@ export default function OurServices() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
             <MediaPlaceholder height="h-96" label="Digital Marketing Analytics" />
             <div>
+              <div className="mb-4">
+                <ServiceIcon service="digital-marketing" size={40} />
+              </div>
               <h3 className="font-bold text-text-primary mb-4 text-lg">Performance & Growth Marketing</h3>
               <p className="text-text-secondary mb-4">
                 We optimize digital channels for measurable ROI. Our services span paid media, search optimization, CRM, and performance analytics to drive sustainable growth.
@@ -154,6 +167,9 @@ export default function OurServices() {
         <Section title="Experiential Marketing & Events" sectionNumber={5}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
+              <div className="mb-4">
+                <ServiceIcon service="experiential" size={40} />
+              </div>
               <h3 className="font-bold text-text-primary mb-4 text-lg">Memorable Brand Experiences</h3>
               <p className="text-text-secondary mb-4">
                 Create lasting brand connections through events, activations, and experiential marketing. We design and execute memorable experiences that drive engagement and brand loyalty.
