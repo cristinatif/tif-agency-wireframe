@@ -15,8 +15,19 @@ export default function Home() {
           description="TIF Agency delivers integrated marketing, creative services, and strategic insights for ambitious global brands. We partner with organizations ready to scale impact and drive measurable business outcomes."
         />
 
+        {/* Trusted By */}
+        <Section title="Trusted By Leading Brands" subtitle="Partnership with ambitious organizations globally" sectionNumber={1}>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-8">
+            {[...Array(12)].map((_, idx) => (
+              <div key={idx} className="flex items-center justify-center bg-gray-50 border border-gray-200 p-6 rounded-sm hover:bg-gray-100 transition-colors">
+                <span className="text-text-tertiary font-semibold text-sm">LOGO</span>
+              </div>
+            ))}
+          </div>
+        </Section>
+
         {/* Featured Services */}
-        <Section title="Our Approach" subtitle="Integrated solutions across key disciplines" sectionNumber={1}>
+        <Section title="Our Approach" subtitle="Integrated solutions across key disciplines" sectionNumber={2}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <Card
               title="Strategic Research"
@@ -49,7 +60,7 @@ export default function Home() {
         </Section>
 
         {/* Featured Work */}
-        <Section title="Featured Work" subtitle="Case studies from our global portfolio" darkBg sectionNumber={2}>
+        <Section title="Featured Work" subtitle="Case studies from our global portfolio" darkBg sectionNumber={3}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             <div>
               <MediaPlaceholder height="h-80" label="Case Study Hero Image" />
@@ -79,7 +90,7 @@ export default function Home() {
         </Section>
 
         {/* Global Presence */}
-        <Section title="Global Reach" subtitle="Partnership centers across three continents" sectionNumber={3}>
+        <Section title="Global Reach" subtitle="Partnership centers across three continents" sectionNumber={4}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <ServiceBox
               number="1"
@@ -108,7 +119,7 @@ export default function Home() {
         </Section>
 
         {/* Value Proposition */}
-        <Section title="Partnership Value" darkBg sectionNumber={4}>
+        <Section title="Partnership Value" darkBg sectionNumber={5}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <h3 className="font-bold text-text-primary mb-4 text-lg">Why Partner With TIF</h3>
@@ -138,7 +149,7 @@ export default function Home() {
         </Section>
 
         {/* CTA */}
-        <Section title="Ready to Transform Your Brand?" subtitle="Let's explore what partnership with TIF can deliver" sectionNumber={5}>
+        <Section title="Ready to Transform Your Brand?" subtitle="Let's explore what partnership with TIF can deliver" sectionNumber={6}>
           <div className="text-center">
             <Link
               href="/contact-us"
