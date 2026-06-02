@@ -29,7 +29,7 @@ interface SectionProps {
 
 export function Section({ title, subtitle, children, darkBg = false, sectionNumber }: SectionProps) {
   return (
-    <section className={`${darkBg ? 'bg-surface-3' : 'bg-surface-1'} py-16 md:py-24 border-b border-border-medium`}>
+    <section className={`${darkBg ? 'bg-surface-3' : 'bg-surface-1'} py-16 md:py-24 border-b border-border-light transition-colors`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12">
           {sectionNumber && <p className="text-text-secondary text-sm mb-2">[Section {String(sectionNumber).padStart(2, '0')}]</p>}
@@ -50,7 +50,7 @@ interface CardProps {
 
 export function Card({ title, description, details }: CardProps) {
   return (
-    <div className="bg-surface-1 border border-border-light p-6 hover:bg-surface-2 transition-colors">
+    <div className="bg-surface-2 border border-border-light p-6 hover:bg-surface-3 transition-colors shadow-sm hover:shadow-md">
       <h3 className="font-bold text-text-primary mb-2">{title}</h3>
       <p className="text-text-secondary text-sm mb-4">{description}</p>
       {details && (
@@ -72,8 +72,9 @@ interface PlaceholderProps {
 
 export function MediaPlaceholder({ width = 'w-full', height = 'h-64', label = 'Media Asset' }: PlaceholderProps) {
   return (
-    <div className={`${width} ${height} bg-surface-3 border border-border-medium flex items-center justify-center`}>
-      <span className="text-text-tertiary text-sm">[{label}]</span>
+    <div className={`${width} ${height} bg-gradient-to-br from-surface-3 to-surface-4 border border-border-medium flex items-center justify-center relative overflow-hidden`}>
+      <div className="absolute inset-0 opacity-5" style={{backgroundImage: 'linear-gradient(45deg, #000 1px, transparent 1px)', backgroundSize: '20px 20px'}}></div>
+      <span className="text-text-tertiary text-sm relative z-10 font-medium">[{label}]</span>
     </div>
   )
 }
@@ -104,7 +105,7 @@ interface ServiceBoxProps {
 
 export function ServiceBox({ number, title, description }: ServiceBoxProps) {
   return (
-    <div className="border border-border-medium p-6 bg-surface-1">
+    <div className="border border-border-light p-6 bg-surface-2 shadow-sm hover:shadow-md transition-shadow">
       <div className="text-3xl font-bold text-text-tertiary mb-2">{number}</div>
       <h3 className="font-bold text-text-primary mb-2">{title}</h3>
       <p className="text-text-secondary text-sm">{description}</p>
