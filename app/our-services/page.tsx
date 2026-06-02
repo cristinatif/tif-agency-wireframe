@@ -202,8 +202,29 @@ export default function OurServices() {
           </div>
         </Section>
 
+        {/* Global Presence */}
+        <Section title="Global Presence" subtitle="Offices across three continents" sectionNumber={6}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <ServiceBox
+              number="1"
+              title="Australia"
+              description="Adelaide & Sydney - Serving regional markets and Asia-Pacific partnerships"
+            />
+            <ServiceBox
+              number="2"
+              title="United States"
+              description="Atlanta - Supporting strategic partnerships and campaigns"
+            />
+            <ServiceBox
+              number="3"
+              title="Colombia"
+              description="Medellín & Bogotá - Spanish-language services and LATAM focus"
+            />
+          </div>
+        </Section>
+
         {/* Integration */}
-        <Section title="Integrated Service Advantage" darkBg>
+        <Section title="Integrated Service Advantage" darkBg sectionNumber={7}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <ServiceBox
               number="1"
@@ -224,7 +245,7 @@ export default function OurServices() {
         </Section>
 
         {/* CTA */}
-        <Section title="Ready to Discuss Your Needs?">
+        <Section title="Ready to Discuss Your Needs?" sectionNumber={8}>
           <div className="text-center">
             <Link
               href="/contact-us"

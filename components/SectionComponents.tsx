@@ -1,5 +1,8 @@
+'use client'
+
 import { ReactNode } from 'react'
 import { HiArrowRight, HiCheckCircle, HiLightBulb } from 'react-icons/hi2'
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
 
 interface HeroProps {
   title: string
@@ -8,13 +11,31 @@ interface HeroProps {
 }
 
 export function Hero({ title, subtitle, description }: HeroProps) {
+  const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>()
+
   return (
-    <div className="bg-surface-1 border-b border-gray-200 pt-32 pb-16 md:pt-48 md:pb-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p className="text-text-secondary text-sm mb-4">[Hero Section]</p>
-        <h1 className="text-4xl md:text-6xl font-bold text-text-primary mb-4">{title}</h1>
-        {subtitle && <h2 className="text-xl md:text-2xl text-text-secondary mb-6">{subtitle}</h2>}
-        {description && <p className="text-text-secondary max-w-2xl mx-auto">{description}</p>}
+    <div ref={ref} className="relative border-b border-gray-200 pt-32 pb-16 md:pt-48 md:pb-24 overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 border border-gray-300">
+        <div className="absolute inset-0 opacity-10" style={{backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(0,0,0,.05) 35px, rgba(0,0,0,.05) 70px)'}}></div>
+        <span className="absolute bottom-4 right-4 text-gray-600 text-xs font-semibold z-10">[Hero Section Background]</span>
+      </div>
+
+      {/* Content Overlay with Dark Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/70 to-white/80"></div>
+
+      {/* Text Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p className={`text-text-secondary text-sm mb-4 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>[Hero Section]</p>
+        <h1 className={`text-4xl md:text-6xl font-bold text-text-primary mb-4 ${
+          isVisible ? 'animate-slide-in-up' : 'opacity-0 translate-y-4'
+        }`}>{title}</h1>
+        {subtitle && <h2 className={`text-xl md:text-2xl text-text-secondary mb-6 ${
+          isVisible ? 'animate-slide-in-up' : 'opacity-0 translate-y-4'
+        }`} style={{ animationDelay: '0.1s' }}>{subtitle}</h2>}
+        {description && <p className={`text-text-secondary max-w-2xl mx-auto ${
+          isVisible ? 'animate-fade-in' : 'opacity-0'
+        }`} style={{ animationDelay: '0.2s' }}>{description}</p>}
       </div>
     </div>
   )
@@ -29,15 +50,24 @@ interface SectionProps {
 }
 
 export function Section({ title, subtitle, children, darkBg = false, sectionNumber }: SectionProps) {
+  const { ref, isVisible } = useIntersectionObserver<HTMLElement>()
+
   return (
-    <section className={`${darkBg ? 'bg-gray-100' : 'bg-white'} py-16 md:py-24 border-b border-gray-200 transition-colors`}>
+    <section
+      ref={ref}
+      className={`${darkBg ? 'bg-gray-100' : 'bg-white'} py-16 md:py-24 border-b border-gray-200 transition-colors ${
+        isVisible ? 'animate-fade-in' : 'opacity-0'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-12">
+        <div className={`mb-12 ${isVisible ? 'animate-slide-in-up' : 'opacity-0'}`}>
           {sectionNumber && <p className="text-text-secondary text-sm mb-2">[Section {String(sectionNumber).padStart(2, '0')}]</p>}
           <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-2">{title}</h2>
           {subtitle && <p className="text-text-secondary text-lg">{subtitle}</p>}
         </div>
-        {children}
+        <div className={isVisible ? 'animate-fade-in' : 'opacity-0'} style={{ animationDelay: '0.1s' }}>
+          {children}
+        </div>
       </div>
     </section>
   )
@@ -50,8 +80,15 @@ interface CardProps {
 }
 
 export function Card({ title, description, details }: CardProps) {
+  const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>()
+
   return (
-    <div className="bg-gray-50 border border-gray-200 p-6 hover:bg-gray-100 transition-colors shadow-md hover:shadow-lg">
+    <div
+      ref={ref}
+      className={`bg-gray-50 border border-gray-200 p-6 hover:bg-gray-100 transition-colors shadow-md hover:shadow-lg ${
+        isVisible ? 'animate-zoom-in' : 'opacity-0 scale-95'
+      }`}
+    >
       <div className="flex items-start gap-3 mb-2">
         <HiCheckCircle className="text-text-primary flex-shrink-0 mt-1" size={20} />
         <h3 className="font-bold text-text-primary">{title}</h3>
@@ -86,6 +123,33 @@ export function MediaPlaceholder({ width = 'w-full', height = 'h-64', label = 'M
   )
 }
 
+interface VideoPlaceholderProps {
+  width?: string
+  height?: string
+  label?: string
+}
+
+export function VideoPlaceholder({ width = 'w-full', height = 'h-64', label = 'Video Asset' }: VideoPlaceholderProps) {
+  return (
+    <div className={`${width} ${height} bg-gradient-to-br from-gray-300 to-gray-400 border border-gray-400 flex items-center justify-center relative overflow-hidden group cursor-pointer`}>
+      <div className="absolute inset-0 opacity-10" style={{backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(0,0,0,.05) 35px, rgba(0,0,0,.05) 70px)'}}></div>
+
+      {/* Play Button */}
+      <div className="relative z-10 flex flex-col items-center gap-4">
+        <div className="w-16 h-16 bg-text-primary text-white rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+          <svg className="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </div>
+        <span className="text-gray-700 text-sm font-semibold">[{label}]</span>
+      </div>
+
+      {/* Hover Overlay */}
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300"></div>
+    </div>
+  )
+}
+
 interface TimelineItemProps {
   year: string
   title: string
@@ -112,8 +176,15 @@ interface ServiceBoxProps {
 }
 
 export function ServiceBox({ number, title, description }: ServiceBoxProps) {
+  const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>()
+
   return (
-    <div className="border border-gray-200 p-6 bg-gray-50 shadow-md hover:shadow-lg transition-shadow">
+    <div
+      ref={ref}
+      className={`border border-gray-200 p-6 bg-gray-50 shadow-md hover:shadow-lg transition-shadow ${
+        isVisible ? 'animate-scale-up' : 'opacity-0 scale-95'
+      }`}
+    >
       <div className="flex items-center justify-center w-10 h-10 bg-text-primary text-white rounded-full mb-4 font-bold text-lg">{number}</div>
       <h3 className="font-bold text-text-primary mb-2">{title}</h3>
       <p className="text-text-secondary text-sm">{description}</p>

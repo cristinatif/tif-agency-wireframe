@@ -45,48 +45,55 @@ export default function ContactUs() {
         {/* Contact Form & Info */}
         <Section title="Contact Information" sectionNumber={1}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {/* Sydney */}
+            {/* Australia */}
             <div className="border border-border-light p-6 bg-surface-1">
-              <h3 className="font-bold text-text-primary mb-3">Sydney, Australia</h3>
+              <h3 className="font-bold text-text-primary mb-3">Australia</h3>
+              <p className="text-text-secondary text-sm mb-4 font-semibold">
+                The Ideas Factory Australia Pty Ltd
+              </p>
               <p className="text-text-secondary text-sm mb-4">
-                Level 10, 123 Pitt Street<br />
-                Sydney, NSW 2000<br />
-                Australia
+                Adelaide • Sydney
               </p>
               <div>
-                <p className="text-text-tertiary text-xs font-bold mb-2">CONTACT</p>
-                <p className="text-text-secondary text-sm">+61 2 8000 0000</p>
-                <p className="text-text-secondary text-sm">sydney@tifagency.com</p>
+                <p className="text-text-tertiary text-xs font-bold mb-2">ABN</p>
+                <p className="text-text-secondary text-sm mb-3">73 663 094 920</p>
+                <p className="text-text-tertiary text-xs font-bold mb-2">PHONE</p>
+                <p className="text-text-secondary text-sm"><a href="tel:+61400352645" className="hover:underline text-text-primary">+61 400 352 645</a></p>
+                <p className="text-text-secondary text-sm"><a href="mailto:sales@theidesfactory.com.au" className="hover:underline text-text-primary">sales@theidesfactory.com.au</a></p>
               </div>
             </div>
 
-            {/* Mexico City */}
+            {/* Colombia */}
             <div className="border border-border-light p-6 bg-surface-1">
-              <h3 className="font-bold text-text-primary mb-3">Mexico City, Mexico</h3>
+              <h3 className="font-bold text-text-primary mb-3">Colombia</h3>
+              <p className="text-text-secondary text-sm mb-4 font-semibold">
+                The Ideas Factory S.A.S
+              </p>
               <p className="text-text-secondary text-sm mb-4">
-                Avenida Paseo de la Reforma 505<br />
-                Cuauhtémoc, CDMX 06500<br />
-                Mexico
+                Medellín • Bogotá
               </p>
               <div>
-                <p className="text-text-tertiary text-xs font-bold mb-2">CONTACT</p>
-                <p className="text-text-secondary text-sm">+52 55 0000 0000</p>
-                <p className="text-text-secondary text-sm">latam@tifagency.com</p>
+                <p className="text-text-tertiary text-xs font-bold mb-2">NIT</p>
+                <p className="text-text-secondary text-sm mb-3">901029547</p>
+                <p className="text-text-tertiary text-xs font-bold mb-2">WHATSAPP</p>
+                <p className="text-text-secondary text-sm"><a href="https://wa.me/573177346527" target="_blank" rel="noopener noreferrer" className="hover:underline text-text-primary">+57 317 734 6527</a></p>
+                <p className="text-text-secondary text-sm"><a href="mailto:sales@theidesfactory.comco" className="hover:underline text-text-primary">sales@theidesfactory.comco</a></p>
               </div>
             </div>
 
             {/* USA */}
             <div className="border border-border-light p-6 bg-surface-1">
               <h3 className="font-bold text-text-primary mb-3">United States</h3>
+              <p className="text-text-secondary text-sm mb-4 font-semibold">
+                TIF Agency
+              </p>
               <p className="text-text-secondary text-sm mb-4">
-                350 Fifth Avenue<br />
-                New York, NY 10118<br />
-                USA
+                Atlanta
               </p>
               <div>
-                <p className="text-text-tertiary text-xs font-bold mb-2">CONTACT</p>
-                <p className="text-text-secondary text-sm">+1 212 000 0000</p>
-                <p className="text-text-secondary text-sm">usa@tifagency.com</p>
+                <p className="text-text-tertiary text-xs font-bold mb-2">PHONE</p>
+                <p className="text-text-secondary text-sm"><a href="tel:+14046788032" className="hover:underline text-text-primary">+1 404 678 8032</a></p>
+                <p className="text-text-secondary text-sm"><a href="https://tifagency.com" target="_blank" rel="noopener noreferrer" className="hover:underline text-text-primary">tifagency.com</a></p>
               </div>
             </div>
           </div>

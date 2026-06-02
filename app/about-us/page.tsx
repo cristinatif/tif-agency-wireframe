@@ -1,6 +1,6 @@
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
-import { Hero, Section, MediaPlaceholder, TimelineItem } from '@/components/SectionComponents'
+import { Hero, Section, MediaPlaceholder, VideoPlaceholder, TimelineItem } from '@/components/SectionComponents'
 import Link from 'next/link'
 
 export default function AboutUs() {
@@ -27,7 +27,7 @@ export default function AboutUs() {
                 Today, TIF operates across three continents with offices in Sydney, Mexico City, and the USA. Our team brings diverse perspectives and deep expertise in building brands that scale.
               </p>
             </div>
-            <MediaPlaceholder height="h-96" label="Company Story Visual" />
+            <VideoPlaceholder height="h-96" label="Company Story Video" />
           </div>
         </Section>
 
@@ -57,7 +57,7 @@ export default function AboutUs() {
             <TimelineItem
               year="2019"
               title="LATAM Hub Opening"
-              description="Expanded to Mexico City with bilingual services for Latin American market"
+              description="Expanded to Colombia with bilingual services for Latin American market"
             />
             <TimelineItem
               year="2021"
@@ -120,16 +120,16 @@ export default function AboutUs() {
               </Link>
             </div>
             <div>
-              <h3 className="font-bold text-text-primary mb-2">Mexico City, Mexico</h3>
+              <h3 className="font-bold text-text-primary mb-2">Colombia</h3>
               <p className="text-text-secondary text-sm mb-4">
                 LATAM hub providing bilingual services and cultural expertise for Latin American partnerships
               </p>
-              <Link href="/locations#latam" className="text-text-primary hover:text-text-secondary text-sm underline">
+              <Link href="/locations#colombia" className="text-text-primary hover:text-text-secondary text-sm underline">
                 View Details →
               </Link>
             </div>
             <div>
-              <h3 className="font-bold text-text-primary mb-2">USA</h3>
+              <h3 className="font-bold text-text-primary mb-2">United States</h3>
               <p className="text-text-secondary text-sm mb-4">
                 Strategic partnership presence supporting North American clients and expanding market reach
               </p>
