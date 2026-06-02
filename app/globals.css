@@ -1,0 +1,76 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+:root {
+  /* Grayscale palette */
+  --background: rgb(255, 255, 255);
+  --foreground: rgb(0, 0, 0);
+  --surface-1: rgb(255, 255, 255);
+  --surface-2: rgb(248, 248, 248);
+  --surface-3: rgb(242, 242, 242);
+  --surface-4: rgb(229, 229, 229);
+  --text-primary: rgb(0, 0, 0);
+  --text-secondary: rgb(102, 102, 102);
+  --text-tertiary: rgb(153, 153, 153);
+  --border-light: rgb(229, 229, 229);
+  --border-medium: rgb(204, 204, 204);
+  --border-dark: rgb(102, 102, 102);
+  --hover: rgb(242, 242, 242);
+  --active: rgb(204, 204, 204);
+  --disabled: rgb(191, 191, 191);
+  --radius: 0px;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    background-color: rgb(255, 255, 255);
+  }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+  }
+
+  p {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+  }
+
+  a {
+    color: rgb(0, 0, 0);
+    text-decoration: underline;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  a:hover {
+    opacity: 0.7;
+  }
+
+  button {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  input, textarea, select {
+    font-family: Arial, Helvetica, sans-serif;
+    border-color: rgb(204, 204, 204);
+  }
+
+  input:focus, textarea:focus, select:focus {
+    outline: 2px solid rgb(0, 0, 0);
+    outline-offset: -1px;
+  }
+}
