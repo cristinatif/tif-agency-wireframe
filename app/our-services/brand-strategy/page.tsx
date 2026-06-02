@@ -8,24 +8,24 @@ import Link from 'next/link'
 export default function BrandStrategyService() {
   const faqs = [
     {
-      question: 'How long does a full brand strategy take?',
-      answer: 'Typically 8-12 weeks from research through implementation planning. We can accelerate for urgent timelines.',
+      question: "How long does a full brand strategy take?",
+      answer: "Typically 8-12 weeks from research through implementation planning. We can accelerate for urgent timelines.",
     },
     {
-      question: 'Do you rebrand existing companies?',
-      answer: 'Yes, we specialize in strategic rebranding for companies entering new markets, changing positioning, or modernizing their image.',
+      question: "Do you rebrand existing companies?",
+      answer: "Yes, we specialize in strategic rebranding for companies entering new markets, changing positioning, or modernizing their image.",
     },
     {
-      question: 'What if we don't know what we want?',
-      answer: 'That's normal. We start with discovery and research to understand your market position, audience, and competitive landscape.',
+      question: "What if we don't know what we want?",
+      answer: "That's normal. We start with discovery and research to understand your market position, audience, and competitive landscape.",
     },
     {
-      question: 'Do you help with implementation?',
-      answer: 'Yes. We provide implementation plans and can guide rollout across all touchpoints, working with your internal teams.',
+      question: "Do you help with implementation?",
+      answer: "Yes. We provide implementation plans and can guide rollout across all touchpoints, working with your internal teams.",
     },
     {
-      question: 'What's included in brand guidelines?',
-      answer: 'Logo usage, color palette, typography, messaging frameworks, tone of voice, visual language, and application guidelines.',
+      question: "What's included in brand guidelines?",
+      answer: "Logo usage, color palette, typography, messaging frameworks, tone of voice, visual language, and application guidelines.",
     },
   ]
 

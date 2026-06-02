@@ -8,24 +8,24 @@ import Link from 'next/link'
 export default function CreativeStudioService() {
   const faqs = [
     {
-      question: 'What makes your creative approach different?',
-      answer: 'We combine strategic thinking with creative excellence. Every design, video, and asset is grounded in strategy and designed to drive measurable results.',
+      question: "What makes your creative approach different?",
+      answer: "We combine strategic thinking with creative excellence. Every design, video, and asset is grounded in strategy and designed to drive measurable results.",
     },
     {
-      question: 'Can you handle complex, technical products?',
-      answer: 'Yes, we specialize in making complex products understandable. We excel at simplifying technical concepts for B2B audiences.',
+      question: "Can you handle complex, technical products?",
+      answer: "Yes, we specialize in making complex products understandable. We excel at simplifying technical concepts for B2B audiences.",
     },
     {
-      question: 'Do you provide creative retouching and revisions?',
-      answer: 'Absolutely. We build revision rounds into every project and continue until you're thrilled with the creative.',
+      question: "Do you provide creative retouching and revisions?",
+      answer: "Absolutely. We build revision rounds into every project and continue until you're thrilled with the creative.",
     },
     {
-      question: 'What mediums do you work in?',
-      answer: 'Graphic design, web/UX design, audiovisual production, 3D visualization, animation, and content creation.',
+      question: "What mediums do you work in?",
+      answer: "Graphic design, web/UX design, audiovisual production, 3D visualization, animation, and content creation.",
     },
     {
-      question: 'How long do creative projects take?',
-      answer: 'Most projects range from 4-12 weeks depending on scope. We can expedite for urgent needs.',
+      question: "How long do creative projects take?",
+      answer: "Most projects range from 4-12 weeks depending on scope. We can expedite for urgent needs.",
     },
   ]
 

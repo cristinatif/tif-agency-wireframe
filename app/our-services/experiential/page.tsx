@@ -8,24 +8,24 @@ import Link from 'next/link'
 export default function ExperientialMarketingService() {
   const faqs = [
     {
-      question: 'How do you measure the success of an experiential campaign?',
-      answer: 'We track engagement metrics, brand lift, social amplification, lead generation, and customer lifetime value impact. Every activation includes measurement strategy.',
+      question: "How do you measure the success of an experiential campaign?",
+      answer: "We track engagement metrics, brand lift, social amplification, lead generation, and customer lifetime value impact. Every activation includes measurement strategy.",
     },
     {
-      question: 'What types of events do you produce?',
-      answer: 'Product launches, user conferences, executive summits, pop-up experiences, brand activations, trade shows, and digital experiences.',
+      question: "What types of events do you produce?",
+      answer: "Product launches, user conferences, executive summits, pop-up experiences, brand activations, trade shows, and digital experiences.",
     },
     {
-      question: 'How long do projects typically take?',
-      answer: '4-8 weeks for smaller activations, 2-3+ months for major events. Complex campaigns need 3-6 months planning.',
+      question: "How long do projects typically take?",
+      answer: "4-8 weeks for smaller activations, 2-3+ months for major events. Complex campaigns need 3-6 months planning.",
     },
     {
-      question: 'Can you reach audiences in multiple cities/countries?',
-      answer: 'Yes. We design scalable experiences and partner with local teams to execute consistently across geographies.',
+      question: "Can you reach audiences in multiple cities/countries?",
+      answer: "Yes. We design scalable experiences and partner with local teams to execute consistently across geographies.",
     },
     {
-      question: 'What's the typical budget range?',
-      answer: 'Activations range from $50K for focused experiences to $500K+ for major brand campaigns. We work within your parameters.',
+      question: "What's the typical budget range?",
+      answer: "Activations range from $50K for focused experiences to $500K+ for major brand campaigns. We work within your parameters.",
     },
   ]
 
