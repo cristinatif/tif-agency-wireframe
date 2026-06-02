@@ -2,6 +2,7 @@ import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 import { Hero, Section, Card, MediaPlaceholder, ServiceBox, ServiceCard, ProcessStep } from '@/components/SectionComponents'
 import { ServiceIcon } from '@/components/ServiceIcons'
+import { StickyServicesCTA } from '@/components/StickyServicesCTA'
 import Link from 'next/link'
 import { HiLightBulb } from 'react-icons/hi2'
 
@@ -9,6 +10,7 @@ export default function OurServices() {
   return (
     <>
       <Navigation />
+      <StickyServicesCTA />
       <main className="pt-nav-height">
         <Hero
           title="Our Services"
