@@ -160,7 +160,7 @@ export function ProposalForm({ service }: ProposalFormProps) {
 
           <button
             type="submit"
-            className="w-full bg-text-primary text-background py-4 font-semibold hover:opacity-80 transition-opacity"
+            className="w-full bg-text-primary text-background py-5 font-bold hover:shadow-xl hover:scale-105 transition-all rounded-lg"
           >
             Get Proposal
           </button>

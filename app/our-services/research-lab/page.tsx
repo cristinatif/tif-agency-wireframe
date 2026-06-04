@@ -139,7 +139,7 @@ export default function ResearchLabService() {
           <p className="text-text-secondary mb-8 max-w-3xl">
             Every business challenge is unique. We customize our research approach based on what you need to know.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <Card
               title="Market Research & Analysis"
               description="Understand market size, growth trends, segment dynamics, and emerging opportunities in your space."
@@ -180,6 +180,14 @@ export default function ResearchLabService() {
                 'Customer satisfaction research',
               ]}
             />
+          </div>
+          <div className="text-center">
+            <Link
+              href="/contact-us"
+              className="inline-block bg-text-primary text-background px-12 py-5 hover:shadow-xl hover:scale-105 transition-all font-bold rounded-lg"
+            >
+              Talk to us
+            </Link>
           </div>
         </Section>
 

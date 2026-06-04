@@ -158,7 +158,7 @@ export default function Home() {
           <div className="text-center">
             <Link
               href="/contact-us"
-              className="inline-block bg-text-primary text-background px-10 py-4 hover:opacity-80 transition-opacity font-semibold"
+              className="inline-block bg-gray-100 text-text-primary px-12 py-5 hover:bg-gray-200 hover:shadow-lg transition-all font-bold border border-gray-200 rounded-lg"
             >
               Start Conversation
             </Link>

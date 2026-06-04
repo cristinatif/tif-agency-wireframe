@@ -131,7 +131,7 @@ export default function BrandStrategyService() {
         </Section>
 
         <Section title="Brand Strategy Services" sectionNumber={3}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <Card
               title="Brand Positioning & Architecture"
               description="Define what makes you different and how you own a space in the customer's mind."
@@ -172,6 +172,14 @@ export default function BrandStrategyService() {
                 'Elevator pitch variations',
               ]}
             />
+          </div>
+          <div className="text-center">
+            <Link
+              href="/contact-us"
+              className="inline-block bg-text-primary text-background px-12 py-5 hover:shadow-xl hover:scale-105 transition-all font-bold rounded-lg"
+            >
+              Talk to us
+            </Link>
           </div>
         </Section>
 

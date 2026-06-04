@@ -271,8 +271,8 @@ export function BrochureCtaBanner({ serviceName }: { serviceName: string }) {
           </p>
         </div>
         <div className="flex gap-4 flex-col md:flex-row justify-end">
-          <a href="#" className="inline-block border border-text-primary text-text-primary px-6 py-3 hover:bg-hover transition-colors font-semibold text-center text-sm">Download Brochure</a>
-          <a href="#proposal-form" className="inline-block bg-text-primary text-background px-6 py-3 hover:opacity-80 transition-opacity font-semibold text-center text-sm">Quick Call</a>
+          <a href="#" className="inline-block border-2 border-text-primary text-text-primary px-8 py-4 hover:bg-text-primary hover:text-background transition-all font-bold text-center rounded-lg">Download Brochure</a>
+          <a href="#proposal-form" className="inline-block bg-text-primary text-background px-8 py-4 hover:shadow-xl hover:scale-105 transition-all font-bold rounded-lg">Quick Call</a>
         </div>
       </div>
     </div>

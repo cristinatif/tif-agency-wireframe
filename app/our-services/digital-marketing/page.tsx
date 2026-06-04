@@ -106,11 +106,19 @@ export default function DigitalMarketingService() {
         </Section>
 
         <Section title="Digital Services" sectionNumber={3}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <Card title="Web Marketing & PPC" description="Strategic paid advertising across Google, LinkedIn, and social platforms." details={['Campaign strategy', 'Ad copywriting', 'Landing page optimization', 'Bid management']} />
             <Card title="Search Engine Optimization (SEO)" description="Organic visibility and traffic growth through technical and content optimization." details={['Technical SEO audits', 'Content strategy', 'Keyword research', 'Link building']} />
             <Card title="Marketing Automation & CRM" description="Build systems that nurture leads and automate customer journeys." details={['Marketing automation setup', 'Email campaigns', 'Lead scoring', 'CRM integration']} />
             <Card title="Performance Analytics" description="Track what matters. Measure ROI and identify growth opportunities." details={['Analytics setup', 'Dashboards and reporting', 'Attribution modeling', 'Growth insights']} />
+          </div>
+          <div className="text-center">
+            <Link
+              href="/contact-us"
+              className="inline-block bg-text-primary text-background px-12 py-5 hover:shadow-xl hover:scale-105 transition-all font-bold rounded-lg"
+            >
+              Talk to us
+            </Link>
           </div>
         </Section>
 

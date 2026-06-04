@@ -137,6 +137,14 @@ export default function IntegratedSolutionsService() {
               </div>
             </div>
           </div>
+          <div className="text-center mt-8">
+            <Link
+              href="/contact-us"
+              className="inline-block bg-text-primary text-background px-12 py-5 hover:shadow-xl hover:scale-105 transition-all font-bold rounded-lg"
+            >
+              Talk to us
+            </Link>
+          </div>
         </Section>
 
         <Section title="Results & Impact" darkBg sectionNumber={4}>

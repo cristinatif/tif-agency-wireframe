@@ -106,11 +106,19 @@ export default function ExperientialMarketingService() {
         </Section>
 
         <Section title="Experiential Services" sectionNumber={3}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <Card title="Event Strategy & Planning" description="From concept through execution, we design and produce events that achieve specific business objectives." details={['Strategic brief and objectives', 'Audience experience design', 'Venue and logistics management', 'Event production coordination']} />
             <Card title="Brand Activations" description="Create immersive, branded experiences that engage audiences and drive brand affinity." details={['Activation concept development', 'Experience design and production', 'Interactive installations', 'Social amplification strategy']} />
             <Card title="Campaign & Tour Strategy" description="Design multi-location campaigns that scale while maintaining local relevance and brand consistency." details={['Multi-city campaign planning', 'Local market customization', 'Tour logistics and management', 'Regional activation design']} />
             <Card title="Digital & Hybrid Experiences" description="Blend physical and digital for expanded reach and engagement across channels." details={['Virtual event production', 'Hybrid event technology', 'Digital engagement tools', 'Live streaming and broadcast']} />
+          </div>
+          <div className="text-center">
+            <Link
+              href="/contact-us"
+              className="inline-block bg-text-primary text-background px-12 py-5 hover:shadow-xl hover:scale-105 transition-all font-bold rounded-lg"
+            >
+              Talk to us
+            </Link>
           </div>
         </Section>
 

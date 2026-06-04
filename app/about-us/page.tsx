@@ -107,36 +107,19 @@ export default function AboutUs() {
           </div>
         </Section>
 
-        {/* Global Footprint */}
-        <Section title="Global Footprint" darkBg sectionNumber={4}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="font-bold text-text-primary mb-2">Sydney, Australia</h3>
-              <p className="text-text-secondary text-sm mb-4">
-                Our Asia-Pacific headquarters serves regional clients and enables partnerships across APAC markets
-              </p>
-              <Link href="/locations#australia" className="text-text-primary hover:text-text-secondary text-sm underline">
-                View Details →
-              </Link>
-            </div>
-            <div>
-              <h3 className="font-bold text-text-primary mb-2">Colombia</h3>
-              <p className="text-text-secondary text-sm mb-4">
-                LATAM hub providing bilingual services and cultural expertise for Latin American partnerships
-              </p>
-              <Link href="/locations#colombia" className="text-text-primary hover:text-text-secondary text-sm underline">
-                View Details →
-              </Link>
-            </div>
-            <div>
-              <h3 className="font-bold text-text-primary mb-2">United States</h3>
-              <p className="text-text-secondary text-sm mb-4">
-                Strategic partnership presence supporting North American clients and expanding market reach
-              </p>
-              <Link href="/locations#usa" className="text-text-primary hover:text-text-secondary text-sm underline">
-                View Details →
-              </Link>
-            </div>
+        {/* Our Team */}
+        <Section title="Our Team" subtitle="The talented people behind TIF" darkBg sectionNumber={4}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {/* Team Members - 16 people */}
+            {[...Array(16)].map((_, idx) => (
+              <div key={idx} className="bg-surface-1 border border-border-light rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+                <MediaPlaceholder height="h-40" label="Photo" />
+                <div className="p-3">
+                  <h3 className="font-bold text-text-primary text-sm mb-1">Team Member</h3>
+                  <p className="text-text-tertiary text-xs font-semibold">Position / Role</p>
+                </div>
+              </div>
+            ))}
           </div>
         </Section>
 
@@ -145,7 +128,7 @@ export default function AboutUs() {
           <div className="text-center">
             <Link
               href="/contact-us"
-              className="inline-block bg-text-primary text-background px-10 py-4 hover:opacity-80 transition-opacity font-semibold"
+              className="inline-block bg-text-primary text-background px-12 py-5 hover:shadow-xl hover:scale-105 transition-all font-bold rounded-lg"
             >
               Start a Conversation
             </Link>

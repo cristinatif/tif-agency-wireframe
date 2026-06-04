@@ -4,6 +4,7 @@ import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 import { Hero, Section, MediaPlaceholder } from '@/components/SectionComponents'
 import { ProposalForm } from '@/components/ProposalForm'
+import { WorkShowcase } from '@/components/WorkShowcase'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 
@@ -41,6 +42,46 @@ We rebuilt their entire brand platform from the ground up: new positioning, visu
         'Speed matters—18-month turnaround for mature brands requires discipline and focus',
       ],
       nextSteps: 'Extended engagement to evolve brand into international markets and new category extensions',
+      workCategories: [
+        {
+          id: 'brand-assets',
+          title: 'Brand Assets',
+          description: 'Complete visual identity system developed from scratch, including logo, color palette, typography, and brand guidelines.',
+          icon: '🎨',
+          items: [
+            { id: '1', type: 'placeholder', title: 'Logo Design', description: 'Primary logo mark and variations' },
+            { id: '2', type: 'placeholder', title: 'Brand Guidelines', description: 'Comprehensive brand guidelines document' },
+            { id: '3', type: 'placeholder', title: 'Color Palette', description: 'Primary and secondary colors with applications' },
+            { id: '4', type: 'placeholder', title: 'Typography System', description: 'Font pairings and usage rules' },
+            { id: '5', type: 'placeholder', title: 'Visual Elements', description: 'Icons and decorative elements' },
+          ],
+        },
+        {
+          id: 'creative-work',
+          title: 'Creative Executions',
+          description: 'Campaign creative across multiple channels including print, digital, and environmental.',
+          icon: '🎬',
+          items: [
+            { id: '6', type: 'placeholder', title: 'Campaign Hero Image', description: 'Primary campaign visual' },
+            { id: '7', type: 'placeholder', title: 'Advertising Creative', description: 'Digital and print ads' },
+            { id: '8', type: 'placeholder', title: 'Social Media Assets', description: 'Optimized for all platforms' },
+            { id: '9', type: 'placeholder', title: 'Video Content', description: 'Campaign video production' },
+            { id: '10', type: 'placeholder', title: 'Print Materials', description: 'Brochures, packaging, collateral' },
+          ],
+        },
+        {
+          id: 'strategy-docs',
+          title: 'Strategic Documents',
+          description: 'Research findings, strategy frameworks, and implementation roadmaps.',
+          icon: '📊',
+          items: [
+            { id: '11', type: 'placeholder', title: 'Market Research', description: 'Consumer insights and competitive analysis' },
+            { id: '12', type: 'placeholder', title: 'Strategy Framework', description: 'Positioning and messaging architecture' },
+            { id: '13', type: 'placeholder', title: 'Implementation Plan', description: 'Phased go-to-market roadmap' },
+            { id: '14', type: 'placeholder', title: 'Brand Guidelines', description: 'Internal brand management system' },
+          ],
+        },
+      ],
     },
     'digital-marketing-saas-growth': {
       title: 'Digital Marketing Campaign',
@@ -71,6 +112,44 @@ We then executed coordinated campaigns: optimized PPC across Google and LinkedIn
         'Optimization never stops—continuous testing and channel rebalancing drive consistent improvement',
       ],
       nextSteps: 'Expanded to international markets with localized campaign strategies and market-specific content.',
+      workCategories: [
+        {
+          id: 'digital-campaigns',
+          title: 'Digital Campaigns',
+          description: 'Multi-channel PPC campaigns across Google Ads and LinkedIn with optimized landing pages and ad creatives.',
+          icon: '📱',
+          items: [
+            { id: '1', type: 'placeholder', title: 'Google Ads Campaign', description: 'Search and display advertising' },
+            { id: '2', type: 'placeholder', title: 'LinkedIn Campaigns', description: 'B2B targeting and lead generation' },
+            { id: '3', type: 'placeholder', title: 'Landing Pages', description: 'Conversion-optimized pages' },
+            { id: '4', type: 'placeholder', title: 'Ad Creative', description: 'Variations and A/B tests' },
+          ],
+        },
+        {
+          id: 'seo-content',
+          title: 'SEO & Content',
+          description: 'Content strategy, keyword optimization, and thought leadership articles driving organic growth.',
+          icon: '📝',
+          items: [
+            { id: '5', type: 'placeholder', title: 'Content Calendar', description: '6-month content roadmap' },
+            { id: '6', type: 'placeholder', title: 'Blog Articles', description: 'SEO-optimized thought leadership' },
+            { id: '7', type: 'placeholder', title: 'Technical SEO', description: 'Site optimization and structure' },
+            { id: '8', type: 'placeholder', title: 'Keyword Research', description: 'Competitive keyword analysis' },
+          ],
+        },
+        {
+          id: 'analytics',
+          title: 'Analytics & Performance',
+          description: 'Dashboards, attribution modeling, and performance reports showing ROI across all channels.',
+          icon: '📈',
+          items: [
+            { id: '9', type: 'placeholder', title: 'Performance Dashboard', description: 'Real-time metrics and KPIs' },
+            { id: '10', type: 'placeholder', title: 'Monthly Reports', description: 'Channel performance analysis' },
+            { id: '11', type: 'placeholder', title: 'Attribution Model', description: 'Customer journey tracking' },
+            { id: '12', type: 'placeholder', title: 'ROI Analysis', description: 'Channel contribution breakdown' },
+          ],
+        },
+      ],
     },
   }
 
@@ -131,8 +210,15 @@ We then executed coordinated campaigns: optimized PPC across Google and LinkedIn
           </div>
         </Section>
 
+        {/* Work Showcase */}
+        {study.workCategories && (
+          <Section title="Work & Deliverables" sectionNumber={3}>
+            <WorkShowcase categories={study.workCategories} />
+          </Section>
+        )}
+
         {/* Process/Methodology */}
-        <Section title="Methodology" sectionNumber={3}>
+        <Section title="Methodology" sectionNumber={4}>
           <div className="space-y-6">
             {study.process.map((step: any, idx: number) => (
               <div key={idx} className="grid grid-cols-1 md:grid-cols-4 gap-8 border-b border-gray-200 pb-8 last:border-0">
@@ -155,7 +241,7 @@ We then executed coordinated campaigns: optimized PPC across Google and LinkedIn
         </Section>
 
         {/* Results */}
-        <Section title="Results & Impact" sectionNumber={4} darkBg>
+        <Section title="Results & Impact" sectionNumber={5} darkBg>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {study.results.map((result: any, idx: number) => (
               <div key={idx} className="bg-white border border-gray-200 p-6">
@@ -195,7 +281,7 @@ We then executed coordinated campaigns: optimized PPC across Google and LinkedIn
         </Section>
 
         {/* Key Learnings */}
-        <Section title="Key Learnings" sectionNumber={5}>
+        <Section title="Key Learnings" sectionNumber={6}>
           <div className="space-y-4 max-w-3xl">
             {study.keyLearnings.map((learning: string, idx: number) => (
               <div key={idx} className="border-l-4 border-text-primary pl-6 py-2">
@@ -206,7 +292,7 @@ We then executed coordinated campaigns: optimized PPC across Google and LinkedIn
         </Section>
 
         {/* Call to Action */}
-        <Section title="Ready to Drive Similar Results?" sectionNumber={6} darkBg>
+        <Section title="Ready to Drive Similar Results?" sectionNumber={7} darkBg>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
             <div>
               <p className="text-text-secondary text-lg leading-relaxed mb-8">
@@ -214,7 +300,7 @@ We then executed coordinated campaigns: optimized PPC across Google and LinkedIn
               </p>
               <Link
                 href="/contact-us"
-                className="inline-block border border-text-primary text-text-primary px-8 py-3 hover:bg-gray-50 transition-colors font-semibold text-sm"
+                className="inline-block bg-text-primary text-background px-12 py-5 hover:shadow-xl hover:scale-105 transition-all font-bold rounded-lg"
               >
                 Start a Conversation
               </Link>
@@ -226,7 +312,7 @@ We then executed coordinated campaigns: optimized PPC across Google and LinkedIn
         </Section>
 
         {/* Navigation */}
-        <Section sectionNumber={7}>
+        <Section sectionNumber={8}>
           <div className="flex gap-4 justify-between">
             <Link
               href="/our-work"
