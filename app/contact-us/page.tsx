@@ -4,7 +4,7 @@ import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 import { Hero, Section } from '@/components/SectionComponents'
 import { useState } from 'react'
-import { HiChevronDown, HiPhone, HiEnvelope, HiArrowTopRightOnSquare } from 'react-icons/hi2'
+import { HiPhone, HiEnvelope } from 'react-icons/hi2'
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -16,7 +16,33 @@ export default function ContactUs() {
   })
 
   const [submitted, setSubmitted] = useState(false)
-  const [expandedLocation, setExpandedLocation] = useState<string | null>(null)
+
+  const locations = [
+    {
+      id: 'australia',
+      country: 'Australia',
+      cities: 'Adelaide • Sydney',
+      phone: '+61 400 352 645',
+      email: 'sales@theidesfactory.com.au',
+      phoneLink: '+61400352645',
+    },
+    {
+      id: 'colombia',
+      country: 'Colombia',
+      cities: 'Medellín • Bogotá',
+      phone: '+57 317 734 6527',
+      email: 'sales@theidesfactory.comco',
+      phoneLink: '+573177346527',
+    },
+    {
+      id: 'usa',
+      country: 'United States',
+      cities: 'Atlanta',
+      phone: '+1 404 678 8032',
+      email: 'hello@tifagency.com',
+      phoneLink: '+14046788032',
+    },
+  ]
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target as any
@@ -54,58 +80,46 @@ export default function ContactUs() {
           description="Tell us about your project, and we'll connect with you to explore partnership opportunities."
         />
 
-        {/* Contact Form & Locations */}
-        <Section title="Get In Touch" sectionNumber={1}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Left Column - Locations (2 cols width) */}
-            <div className="md:col-span-2 space-y-3">
-              {/* Australia */}
-              <LocationCard
-                name="Australia"
-                company="The Ideas Factory Australia Pty Ltd"
-                cities="Adelaide • Sydney"
-                details={{ label: 'ABN', value: '73 663 094 920' }}
-                phone="+61400352645"
-                email="sales@theidesfactory.com.au"
-                whatsapp="+61400352645"
-                mapEmbed="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3272.3547382370456!2d138.6007!3d-34.9285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642b9e8d8f5f5%3A0x500eef6ae50afe0!2sThe%20Ideas%20Factory%20Australia!5e0!3m2!1sen!2sau!4v1234567890"
-                isExpanded={expandedLocation === 'australia'}
-                onToggle={() => setExpandedLocation(expandedLocation === 'australia' ? null : 'australia')}
-              />
+        {/* Locations */}
+        <Section title="Our Locations" sectionNumber={1}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            {locations.map((location) => (
+              <div key={location.id} className="border border-border-light p-6 bg-surface-1 rounded-lg">
+                <h3 className="font-bold text-text-primary mb-1 text-lg">{location.country}</h3>
+                <p className="text-text-secondary text-sm mb-6">{location.cities}</p>
 
-              {/* Colombia */}
-              <LocationCard
-                name="Colombia"
-                company="The Ideas Factory S.A.S"
-                cities="Medellín • Bogotá"
-                details={{ label: 'NIT', value: '901029547' }}
-                phone="+573177346527"
-                email="sales@theidesfactory.comco"
-                whatsapp="+573177346527"
-                mapEmbed="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.519337897155!2d-75.5136!3d6.2442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4682c00000000%3A0x500eef6ae50afe0!2sThe%20Ideas%20Factory%20Colombia!5e0!3m2!1sen!2sco!4v1234567890"
-                isExpanded={expandedLocation === 'colombia'}
-                onToggle={() => setExpandedLocation(expandedLocation === 'colombia' ? null : 'colombia')}
-              />
+                <div className="space-y-4">
+                  <a
+                    href={`tel:${location.phoneLink}`}
+                    className="flex items-center gap-3 p-3 border border-border-light hover:bg-surface-2 transition-colors rounded group"
+                  >
+                    <HiPhone className="text-text-tertiary group-hover:text-text-primary transition-colors flex-shrink-0" size={18} />
+                    <div>
+                      <p className="font-semibold text-text-primary text-xs">PHONE</p>
+                      <p className="text-text-secondary text-sm">{location.phone}</p>
+                    </div>
+                  </a>
 
-              {/* USA */}
-              <LocationCard
-                name="United States"
-                company="TIF Agency"
-                cities="Atlanta"
-                details={{ label: 'PHONE', value: '+1 404 678 8032' }}
-                phone="+14046788032"
-                email="hello@tifagency.com"
-                whatsapp="+14046788032"
-                mapEmbed="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.2543625829633!2d-84.3880!3d33.7490!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f503f82e4e4e4e%3A0x500eef6ae50afe0!2sAtlanta%2C%20GA!5e0!3m2!1sen!2sus!4v1234567890"
-                isExpanded={expandedLocation === 'usa'}
-                onToggle={() => setExpandedLocation(expandedLocation === 'usa' ? null : 'usa')}
-              />
-            </div>
+                  <a
+                    href={`mailto:${location.email}`}
+                    className="flex items-center gap-3 p-3 border border-border-light hover:bg-surface-2 transition-colors rounded group"
+                  >
+                    <HiEnvelope className="text-text-tertiary group-hover:text-text-primary transition-colors flex-shrink-0" size={18} />
+                    <div>
+                      <p className="font-semibold text-text-primary text-xs">EMAIL</p>
+                      <p className="text-text-secondary text-sm">{location.email}</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Section>
 
-            {/* Right Column - Contact Form (1 col width) */}
-            <div className="border border-border-light p-5 bg-surface-1 h-fit sticky top-32">
-            <h2 className="font-bold text-text-primary mb-4 text-lg">Send us a Message</h2>
+        {/* Contact Form */}
+        <Section title="Send us a Message" sectionNumber={2}>
 
+          <div className="max-w-2xl mx-auto">
             {submitted && (
               <div className="mb-4 p-3 bg-surface-3 border border-border-medium rounded">
                 <p className="text-text-primary font-semibold text-sm">Thank you for your message</p>
@@ -206,150 +220,10 @@ export default function ContactUs() {
                 Send Message
               </button>
             </form>
-            </div>
           </div>
         </Section>
       </main>
       <Footer />
     </>
-  )
-}
-
-interface LocationCardProps {
-  name: string
-  company: string
-  cities: string
-  details: { label: string; value: string }
-  phone: string
-  email: string
-  whatsapp: string
-  mapEmbed: string
-  isExpanded: boolean
-  onToggle: () => void
-}
-
-function LocationCard({
-  name,
-  company,
-  cities,
-  details,
-  phone,
-  email,
-  whatsapp,
-  mapEmbed,
-  isExpanded,
-  onToggle,
-}: LocationCardProps) {
-  return (
-    <div className="border border-border-light overflow-hidden transition-all duration-300">
-      {/* Header - Always Visible */}
-      <button
-        onClick={onToggle}
-        className="w-full p-6 bg-surface-1 hover:bg-surface-2 transition-colors flex items-center justify-between text-left"
-      >
-        <div>
-          <h3 className="font-bold text-text-primary mb-1">{name}</h3>
-          <p className="text-text-secondary text-sm">{company}</p>
-          <p className="text-text-tertiary text-xs mt-1">{cities}</p>
-        </div>
-        <HiChevronDown
-          className={`text-text-tertiary transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
-          size={20}
-        />
-      </button>
-
-      {/* Expanded Content */}
-      {isExpanded && (
-        <div className="border-t border-border-light bg-background p-6 space-y-6">
-          {/* Map */}
-          <div className="w-full rounded overflow-hidden h-80">
-            <iframe
-              src={mapEmbed}
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-
-          {/* Details Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Left Column - Info */}
-            <div className="space-y-4">
-              <div>
-                <p className="text-text-tertiary text-xs font-bold mb-1">{details.label}</p>
-                <p className="text-text-secondary text-sm">{details.value}</p>
-              </div>
-              <div>
-                <p className="text-text-tertiary text-xs font-bold mb-2">PHONE</p>
-                <p className="text-text-secondary text-sm">
-                  <a href={`tel:${phone}`} className="hover:text-text-primary transition-colors">
-                    {phone}
-                  </a>
-                </p>
-              </div>
-              <div>
-                <p className="text-text-tertiary text-xs font-bold mb-2">EMAIL</p>
-                <p className="text-text-secondary text-sm">
-                  <a href={`mailto:${email}`} className="hover:text-text-primary transition-colors">
-                    {email}
-                  </a>
-                </p>
-              </div>
-            </div>
-
-            {/* Right Column - Action Buttons */}
-            <div className="flex flex-col gap-3">
-              <a
-                href={`tel:${phone}`}
-                className="flex items-center gap-3 p-4 border border-border-light hover:bg-surface-1 transition-colors rounded group"
-              >
-                <HiPhone className="text-text-tertiary group-hover:text-text-primary transition-colors" size={20} />
-                <div>
-                  <p className="font-semibold text-text-primary text-sm">Call us</p>
-                  <p className="text-text-secondary text-xs">{phone}</p>
-                </div>
-              </a>
-
-              <a
-                href={`https://wa.me/${whatsapp.replace(/\D/g, '')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 p-4 border border-border-light hover:bg-surface-1 transition-colors rounded group"
-              >
-                <HiPhone className="text-text-tertiary group-hover:text-text-primary transition-colors" size={20} />
-                <div>
-                  <p className="font-semibold text-text-primary text-sm">WhatsApp</p>
-                  <p className="text-text-secondary text-xs">Message us directly</p>
-                </div>
-              </a>
-
-              <a
-                href={`mailto:${email}`}
-                className="flex items-center gap-3 p-4 border border-border-light hover:bg-surface-1 transition-colors rounded group"
-              >
-                <HiEnvelope className="text-text-tertiary group-hover:text-text-primary transition-colors" size={20} />
-                <div>
-                  <p className="font-semibold text-text-primary text-sm">Email</p>
-                  <p className="text-text-secondary text-xs">{email}</p>
-                </div>
-              </a>
-
-              <a
-                href={`https://maps.google.com/maps/search/${name.replace(' ', '+')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 p-4 bg-text-primary text-background hover:opacity-80 transition-opacity rounded font-semibold group"
-              >
-                <HiArrowTopRightOnSquare size={20} />
-                <span>Open in Google Maps</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
   )
 }
