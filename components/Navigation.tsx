@@ -14,7 +14,7 @@ export function Navigation() {
     { href: '/about-us', label: 'About Us' },
     { href: '/our-services', label: 'Our Services' },
     { href: '/our-work', label: 'Our Work' },
-    { href: '/toolbox', label: 'Toolbox' },
+    { href: '/toolbox', label: 'Resources' },
     { href: '/contact-us', label: 'Contact Us' },
   ]
 
