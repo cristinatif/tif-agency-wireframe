@@ -80,146 +80,148 @@ export default function ContactUs() {
           description="Tell us about your project, and we'll connect with you to explore partnership opportunities."
         />
 
-        {/* Locations */}
-        <Section title="Our Locations" sectionNumber={1}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            {locations.map((location) => (
-              <div key={location.id} className="border border-border-light p-6 bg-surface-1 rounded-lg">
-                <h3 className="font-bold text-text-primary mb-1 text-lg">{location.country}</h3>
-                <p className="text-text-secondary text-sm mb-6">{location.cities}</p>
+        {/* Contact Form & Locations */}
+        <Section title="Get In Touch" sectionNumber={1}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Left Column - Locations (2 cols width) */}
+            <div className="md:col-span-2 space-y-3">
+              {locations.map((location) => (
+                <div key={location.id} className="border border-border-light p-6 bg-surface-1 rounded-lg">
+                  <h3 className="font-bold text-text-primary mb-1 text-lg">{location.country}</h3>
+                  <p className="text-text-secondary text-sm mb-6">{location.cities}</p>
 
-                <div className="space-y-4">
-                  <a
-                    href={`tel:${location.phoneLink}`}
-                    className="flex items-center gap-3 p-3 border border-border-light hover:bg-surface-2 transition-colors rounded group"
-                  >
-                    <HiPhone className="text-text-tertiary group-hover:text-text-primary transition-colors flex-shrink-0" size={18} />
-                    <div>
-                      <p className="font-semibold text-text-primary text-xs">PHONE</p>
-                      <p className="text-text-secondary text-sm">{location.phone}</p>
-                    </div>
-                  </a>
+                  <div className="space-y-4">
+                    <a
+                      href={`tel:${location.phoneLink}`}
+                      className="flex items-center gap-3 p-3 border border-border-light hover:bg-surface-2 transition-colors rounded group"
+                    >
+                      <HiPhone className="text-text-tertiary group-hover:text-text-primary transition-colors flex-shrink-0" size={18} />
+                      <div>
+                        <p className="font-semibold text-text-primary text-xs">PHONE</p>
+                        <p className="text-text-secondary text-sm">{location.phone}</p>
+                      </div>
+                    </a>
 
-                  <a
-                    href={`mailto:${location.email}`}
-                    className="flex items-center gap-3 p-3 border border-border-light hover:bg-surface-2 transition-colors rounded group"
-                  >
-                    <HiEnvelope className="text-text-tertiary group-hover:text-text-primary transition-colors flex-shrink-0" size={18} />
-                    <div>
-                      <p className="font-semibold text-text-primary text-xs">EMAIL</p>
-                      <p className="text-text-secondary text-sm">{location.email}</p>
-                    </div>
-                  </a>
+                    <a
+                      href={`mailto:${location.email}`}
+                      className="flex items-center gap-3 p-3 border border-border-light hover:bg-surface-2 transition-colors rounded group"
+                    >
+                      <HiEnvelope className="text-text-tertiary group-hover:text-text-primary transition-colors flex-shrink-0" size={18} />
+                      <div>
+                        <p className="font-semibold text-text-primary text-xs">EMAIL</p>
+                        <p className="text-text-secondary text-sm">{location.email}</p>
+                      </div>
+                    </a>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </Section>
+              ))}
+            </div>
 
-        {/* Contact Form */}
-        <Section title="Send us a Message" sectionNumber={2}>
+            {/* Right Column - Contact Form (1 col width) */}
+            <div className="border border-border-light p-5 bg-surface-1 h-fit sticky top-32">
+              <h2 className="font-bold text-text-primary mb-4 text-lg">Send us a Message</h2>
 
-          <div className="max-w-2xl mx-auto">
-            {submitted && (
-              <div className="mb-4 p-3 bg-surface-3 border border-border-medium rounded">
-                <p className="text-text-primary font-semibold text-sm">Thank you for your message</p>
-                <p className="text-text-secondary text-xs">We'll get back to you shortly.</p>
-              </div>
-            )}
-
-            <form onSubmit={handleSubmit} className="space-y-3">
-              <div>
-                <label htmlFor="name" className="block text-text-primary text-xs font-semibold mb-1 uppercase">
-                  Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full border border-border-medium p-2 text-sm text-text-primary bg-background focus:outline-none focus:border-text-primary"
-                  placeholder="Your name"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-text-primary text-xs font-semibold mb-1 uppercase">
-                  Email *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full border border-border-medium p-2 text-sm text-text-primary bg-background focus:outline-none focus:border-text-primary"
-                  placeholder="you@company.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="phone" className="block text-text-primary text-xs font-semibold mb-1 uppercase">
-                  Phone *
-                </label>
-                <input
-                  type="text"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                  className="w-full border border-border-medium p-2 text-sm text-text-primary bg-background focus:outline-none focus:border-text-primary"
-                  placeholder="Phone"
-                />
-              </div>
-
-              <div>
-                <label className="block text-text-primary text-xs font-semibold mb-2 uppercase">
-                  What are you looking for? *
-                </label>
-                <div className="space-y-2">
-                  {['Strategic Branding', 'Research & Businesses Analytics', 'Creative Projects', 'Digital Positioning & Growth'].map((service) => (
-                    <label key={service} className="flex items-center cursor-pointer group text-xs">
-                      <input
-                        type="checkbox"
-                        name="services"
-                        value={service}
-                        checked={formData.services.includes(service)}
-                        onChange={handleChange}
-                        className="w-3 h-3 border border-border-medium focus:outline-none focus:border-text-primary accent-text-primary"
-                      />
-                      <span className="ml-2 text-text-secondary group-hover:text-text-primary transition-colors">{service}</span>
-                    </label>
-                  ))}
+              {submitted && (
+                <div className="mb-4 p-3 bg-surface-3 border border-border-medium rounded">
+                  <p className="text-text-primary font-semibold text-sm">Thank you for your message</p>
+                  <p className="text-text-secondary text-xs">We'll get back to you shortly.</p>
                 </div>
-              </div>
+              )}
 
-              <div>
-                <label htmlFor="message" className="block text-text-primary text-xs font-semibold mb-1 uppercase">
-                  Message *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={4}
-                  className="w-full border border-border-medium p-2 text-sm text-text-primary bg-background focus:outline-none focus:border-text-primary"
-                  placeholder="Tell us about your inquiry..."
-                ></textarea>
-              </div>
+              <form onSubmit={handleSubmit} className="space-y-3">
+                <div>
+                  <label htmlFor="name" className="block text-text-primary text-xs font-semibold mb-1 uppercase">
+                    Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full border border-border-medium p-2 text-sm text-text-primary bg-background focus:outline-none focus:border-text-primary"
+                    placeholder="Your name"
+                  />
+                </div>
 
-              <button
-                type="submit"
-                className="w-full bg-text-primary text-background py-3 font-bold hover:shadow-lg hover:scale-105 transition-all mt-4 rounded"
-              >
-                Send Message
-              </button>
-            </form>
+                <div>
+                  <label htmlFor="email" className="block text-text-primary text-xs font-semibold mb-1 uppercase">
+                    Email *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full border border-border-medium p-2 text-sm text-text-primary bg-background focus:outline-none focus:border-text-primary"
+                    placeholder="you@company.com"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="phone" className="block text-text-primary text-xs font-semibold mb-1 uppercase">
+                    Phone *
+                  </label>
+                  <input
+                    type="text"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                    className="w-full border border-border-medium p-2 text-sm text-text-primary bg-background focus:outline-none focus:border-text-primary"
+                    placeholder="Phone"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-text-primary text-xs font-semibold mb-2 uppercase">
+                    What are you looking for? *
+                  </label>
+                  <div className="space-y-2">
+                    {['Strategic Branding', 'Research & Businesses Analytics', 'Creative Projects', 'Digital Positioning & Growth'].map((service) => (
+                      <label key={service} className="flex items-center cursor-pointer group text-xs">
+                        <input
+                          type="checkbox"
+                          name="services"
+                          value={service}
+                          checked={formData.services.includes(service)}
+                          onChange={handleChange}
+                          className="w-3 h-3 border border-border-medium focus:outline-none focus:border-text-primary accent-text-primary"
+                        />
+                        <span className="ml-2 text-text-secondary group-hover:text-text-primary transition-colors">{service}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-text-primary text-xs font-semibold mb-1 uppercase">
+                    Message *
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows={4}
+                    className="w-full border border-border-medium p-2 text-sm text-text-primary bg-background focus:outline-none focus:border-text-primary"
+                    placeholder="Tell us about your inquiry..."
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-text-primary text-background py-3 font-bold hover:shadow-lg hover:scale-105 transition-all mt-4 rounded"
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
           </div>
         </Section>
       </main>
