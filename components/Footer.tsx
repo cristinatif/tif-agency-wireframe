@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { FaLinkedin, FaYoutube, FaInstagram } from 'react-icons/fa'
 
 export function Footer() {
   return (
@@ -95,9 +96,42 @@ export function Footer() {
         </div>
 
         <div className="border-t border-border-medium pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center text-sm text-text-secondary">
-            <p>&copy; 2024 TIF Agency. All rights reserved.</p>
-            <div className="flex gap-6 mt-4 md:mt-0">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <p className="text-sm text-text-secondary">&copy; 2024 TIF Agency. All rights reserved.</p>
+
+            {/* Social Media */}
+            <div className="flex gap-4">
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-text-secondary hover:text-text-primary transition-colors"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedin size={20} />
+              </a>
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-text-secondary hover:text-text-primary transition-colors"
+                aria-label="YouTube"
+              >
+                <FaYoutube size={20} />
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-text-secondary hover:text-text-primary transition-colors"
+                aria-label="Instagram"
+              >
+                <FaInstagram size={20} />
+              </a>
+            </div>
+
+            {/* Legal Links */}
+            <div className="flex gap-6 text-sm text-text-secondary">
               <Link href="#" className="hover:text-text-primary transition-colors">
                 Privacy
               </Link>

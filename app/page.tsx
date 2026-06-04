@@ -1,7 +1,6 @@
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 import { Hero, Section, Card, MediaPlaceholder, ServiceBox } from '@/components/SectionComponents'
-import { AchievementsCard } from '@/components/AchievementsCard'
 import Link from 'next/link'
 
 export default function Home() {
@@ -16,19 +15,8 @@ export default function Home() {
           description="TIF Agency delivers integrated marketing, creative services, and strategic insights for ambitious global brands. We partner with organizations ready to scale impact and drive measurable business outcomes."
         />
 
-        {/* Trusted By */}
-        <Section title="Trusted By Leading Brands" subtitle="Partnership with ambitious organizations globally" sectionNumber={1}>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-8">
-            {[...Array(12)].map((_, idx) => (
-              <div key={idx} className="flex items-center justify-center bg-gray-50 border border-gray-200 p-6 rounded-sm hover:bg-gray-100 transition-colors">
-                <span className="text-text-tertiary font-semibold text-sm">LOGO</span>
-              </div>
-            ))}
-          </div>
-        </Section>
-
-        {/* Featured Services */}
-        <Section title="Our Approach" subtitle="Integrated solutions across key disciplines" sectionNumber={2}>
+        {/* Featured Services - Our Approach */}
+        <Section title="Our Approach" subtitle="Integrated solutions across key disciplines" sectionNumber={1}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <Card
               title="Strategic Research"
@@ -60,8 +48,49 @@ export default function Home() {
           </div>
         </Section>
 
+        {/* Value Proposition */}
+        <Section title="Partnership Value" darkBg sectionNumber={2}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="font-bold text-text-primary mb-4 text-lg">Why Partner With TIF</h3>
+              <ul className="space-y-3 text-text-secondary">
+                <li className="flex gap-3">
+                  <span className="text-text-primary">→</span>
+                  <span>Scalable solutions designed for global organizations</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-text-primary">→</span>
+                  <span>ROI-focused approach with transparent metrics</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-text-primary">→</span>
+                  <span>Integrated services reducing complexity and costs</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-text-primary">→</span>
+                  <span>Strategic partnerships enabling growth at scale</span>
+                </li>
+              </ul>
+            </div>
+            <div className="flex items-center justify-center">
+              <MediaPlaceholder height="h-72" label="Partnership Value Visual" />
+            </div>
+          </div>
+        </Section>
+
+        {/* Trusted By */}
+        <Section title="Trusted By Leading Brands" subtitle="Partnership with ambitious organizations globally" sectionNumber={3}>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-8">
+            {[...Array(12)].map((_, idx) => (
+              <div key={idx} className="flex items-center justify-center bg-gray-50 border border-gray-200 p-6 rounded-sm hover:bg-gray-100 transition-colors">
+                <span className="text-text-tertiary font-semibold text-sm">LOGO</span>
+              </div>
+            ))}
+          </div>
+        </Section>
+
         {/* Featured Work */}
-        <Section title="Featured Work" subtitle="Case studies from our global portfolio" darkBg sectionNumber={3}>
+        <Section title="Featured Work" subtitle="Case studies from our global portfolio" darkBg sectionNumber={4}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             <div>
               <MediaPlaceholder height="h-80" label="Case Study Hero Image" />
@@ -90,99 +119,37 @@ export default function Home() {
           </div>
         </Section>
 
-        {/* Achievements */}
-        <Section title="Our Impact" subtitle="Measurable results across our global partnerships" sectionNumber={4}>
-          <AchievementsCard
-            achievements={[
-              {
-                number: '500+',
-                label: 'Projects Delivered',
-                description: 'Strategic marketing and creative campaigns executed globally'
-              },
-              {
-                number: '100+',
-                label: 'Brands Transformed',
-                description: 'From startups to Fortune 500 companies'
-              },
-              {
-                number: '20+',
-                label: 'Countries Served',
-                description: 'Global reach with local expertise'
-              }
-            ]}
-          />
-        </Section>
-
-        {/* Global Presence */}
-        <Section title="Global Reach" subtitle="Partnership centers across three continents" sectionNumber={5}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="border border-gray-200 p-6 bg-gray-50 shadow-md hover:shadow-lg transition-shadow">
-              <h3 className="font-bold text-text-primary mb-2 text-lg">Australia</h3>
-              <p className="text-text-primary font-semibold text-sm mb-3">The Ideas Factory Australia Pty Ltd</p>
-              <p className="text-text-secondary text-sm mb-3">Adelaide • Sydney</p>
-              <div className="space-y-1 text-xs text-text-secondary">
-                <p>ABN: 73 663 094 920</p>
-                <p>Phone: <a href="tel:+61400352645" className="text-text-primary hover:underline">+61 400 352 645</a></p>
-                <p><a href="mailto:sales@theidesfactory.com.au" className="text-text-primary hover:underline">sales@theidesfactory.com.au</a></p>
-              </div>
+        {/* Achievements - Our Impact */}
+        <Section title="Our Impact" subtitle="Measurable results across our global partnerships" sectionNumber={5}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-gray-50 border border-gray-200 p-6 rounded-lg text-center">
+              <div className="text-4xl font-bold text-text-primary mb-2">500+</div>
+              <h3 className="text-lg font-bold text-text-primary mb-2">Projects Delivered</h3>
+              <p className="text-text-secondary text-sm">Strategic marketing and creative campaigns executed globally</p>
             </div>
-            <div className="border border-gray-200 p-6 bg-gray-50 shadow-md hover:shadow-lg transition-shadow">
-              <h3 className="font-bold text-text-primary mb-2 text-lg">United States</h3>
-              <p className="text-text-primary font-semibold text-sm mb-3">TIF Agency</p>
-              <p className="text-text-secondary text-sm mb-3">Atlanta</p>
-              <div className="space-y-1 text-xs text-text-secondary">
-                <p>Phone: <a href="tel:+14046788032" className="text-text-primary hover:underline">+1 404 678 8032</a></p>
-                <p><a href="https://tifagency.com" target="_blank" rel="noopener noreferrer" className="text-text-primary hover:underline">tifagency.com</a></p>
-              </div>
+            <div className="bg-gray-50 border border-gray-200 p-6 rounded-lg text-center">
+              <div className="text-4xl font-bold text-text-primary mb-2">100+</div>
+              <h3 className="text-lg font-bold text-text-primary mb-2">Brands Transformed</h3>
+              <p className="text-text-secondary text-sm">From startups to Fortune 500 companies</p>
             </div>
-            <div className="border border-gray-200 p-6 bg-gray-50 shadow-md hover:shadow-lg transition-shadow">
-              <h3 className="font-bold text-text-primary mb-2 text-lg">Colombia</h3>
-              <p className="text-text-primary font-semibold text-sm mb-3">The Ideas Factory S.A.S</p>
-              <p className="text-text-secondary text-sm mb-3">Medellín • Bogotá</p>
-              <div className="space-y-1 text-xs text-text-secondary">
-                <p>NIT: 901029547</p>
-                <p>WhatsApp: <a href="https://wa.me/573177346527" target="_blank" rel="noopener noreferrer" className="text-text-primary hover:underline">+57 317 734 6527</a></p>
-                <p><a href="mailto:sales@theidesfactory.comco" className="text-text-primary hover:underline">sales@theidesfactory.comco</a></p>
-              </div>
+            <div className="bg-gray-50 border border-gray-200 p-6 rounded-lg text-center">
+              <div className="text-4xl font-bold text-text-primary mb-2">20+</div>
+              <h3 className="text-lg font-bold text-text-primary mb-2">Countries Served</h3>
+              <p className="text-text-secondary text-sm">Global reach with local expertise</p>
             </div>
           </div>
+        </Section>
+
+        {/* Global Presence - Where We Serve Clients */}
+        <Section title="Global Reach" subtitle="Where we serve clients across the world" sectionNumber={6}>
+          <MediaPlaceholder height="h-96" label="Map of our global presence" />
           <div className="text-center mt-8">
             <Link
               href="/locations"
               className="inline-block border border-text-primary px-8 py-3 text-text-primary hover:bg-hover transition-colors font-semibold"
             >
-              Explore Locations
+              Learn About Our Offices
             </Link>
-          </div>
-        </Section>
-
-        {/* Value Proposition */}
-        <Section title="Partnership Value" darkBg sectionNumber={6}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="font-bold text-text-primary mb-4 text-lg">Why Partner With TIF</h3>
-              <ul className="space-y-3 text-text-secondary">
-                <li className="flex gap-3">
-                  <span className="text-text-primary">→</span>
-                  <span>Scalable solutions designed for global organizations</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-text-primary">→</span>
-                  <span>ROI-focused approach with transparent metrics</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-text-primary">→</span>
-                  <span>Integrated services reducing complexity and costs</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-text-primary">→</span>
-                  <span>Strategic partnerships enabling growth at scale</span>
-                </li>
-              </ul>
-            </div>
-            <div className="flex items-center justify-center">
-              <MediaPlaceholder height="h-72" label="Partnership Value Visual" />
-            </div>
           </div>
         </Section>
 
