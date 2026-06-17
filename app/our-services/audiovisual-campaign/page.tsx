@@ -11,30 +11,15 @@ import { LogoCarousel } from '@/components/LogoCarousel'
 import { ServiceVideoCard } from '@/components/ServiceVideoCard'
 import { AudiovisualForm } from '@/components/AudiovisualForm'
 import Link from 'next/link'
-import { HiCheckCircle, HiPlay } from 'react-icons/hi2'
+import { HiPlay } from 'react-icons/hi2'
 
 export default function AudiovisualCampaign() {
   const whyVideo = [
-    {
-      title: 'Accelerate Sales with Case Studies & Testimonials',
-      description: 'Let satisfied clients tell your story. Social proof in video shortens decision cycles and builds trust faster than any deck.',
-    },
-    {
-      title: 'Educate & Train Teams with Micro-Learning Videos',
-      description: 'Bite-sized, on-demand video boosts retention and standardizes knowledge across distributed teams.',
-    },
-    {
-      title: 'Showcase Expertise with Explainer Videos',
-      description: 'Turn complex solutions into clear, compelling stories that prospects actually understand and remember.',
-    },
-    {
-      title: 'Inspire & Align Stakeholders with Leadership Films',
-      description: 'Give your vision a face and a voice. Leadership films align investors, partners, and employees behind a shared mission.',
-    },
-    {
-      title: 'Recruit & Retain Talent with Culture Videos',
-      description: 'Show the real people and places behind your brand. On-site culture videos attract the right talent and reduce churn.',
-    },
+    'Accelerate Sales with Case Studies & Testimonials',
+    'Educate & Train Teams with Micro-Learning Videos',
+    'Showcase Expertise with Explainer Videos',
+    'Inspire & Align Stakeholders with Leadership Films',
+    'Recruit & Retain Talent with Culture Videos',
   ]
 
   const services = [
@@ -98,7 +83,7 @@ export default function AudiovisualCampaign() {
         <Hero
           title="Your Story, Seen. Heard. Felt."
           subtitle="B2B Video Production & Corporate Audiovisual Services"
-          description="Video cuts through complexity, builds trust, and accelerates decisions in B2B. From explainer videos to event aftermovies, TIF turns your message into measurable impact."
+          description="Video cuts through complexity, builds trust, and accelerates decisions in B2B."
         >
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
@@ -118,31 +103,40 @@ export default function AudiovisualCampaign() {
         </Hero>
 
         <Section title="Why Your Company Needs Video" subtitle="In today's B2B landscape, corporate video is a critical tool for engagement and decision-making" sectionNumber={1}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-12">
-            <div className="space-y-6">
-              {whyVideo.map((item) => (
-                <div key={item.title}>
-                  <h3 className="font-bold text-text-primary flex items-start gap-3">
-                    <HiCheckCircle className="flex-shrink-0 mt-1" size={24} />
-                    {item.title}
-                  </h3>
-                </div>
-              ))}
-            </div>
-            <div className="space-y-4">
-              {[
-                'Viewers retain 95% of a message in video vs. 10% in text.',
-                'Decision cycles shorten when buyers see proof on screen.',
-                'Premium visuals position you as an industry leader.',
-              ].map((statement) => (
+          {/* Benefits — icon grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+            {whyVideo.map((title, idx) => {
+              const isLast = idx === whyVideo.length - 1
+              return (
                 <div
-                  key={statement}
-                  className="border-l-4 border-text-primary bg-gray-50 p-6"
+                  key={title}
+                  className={`flex items-center gap-4 border border-gray-200 bg-white p-6 hover:shadow-lg transition-shadow ${
+                    isLast ? 'md:col-span-2 md:w-[calc(50%-0.5rem)] md:mx-auto' : ''
+                  }`}
                 >
-                  <p className="text-text-primary text-lg leading-relaxed">{statement}</p>
+                  <div className="flex-shrink-0 w-12 h-12 bg-gray-200 border border-gray-300 flex items-center justify-center">
+                    <span className="text-[10px] text-gray-500 font-semibold">[icon]</span>
+                  </div>
+                  <h3 className="font-bold text-text-primary">{title}</h3>
                 </div>
-              ))}
-            </div>
+              )
+            })}
+          </div>
+
+          {/* Impact statements — horizontal strip */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { text: 'Viewers retain 95% of a message in video vs. 10% in text.', source: 'Forbes.com' },
+              { text: 'Decision cycles shorten when buyers see proof on screen.' },
+              { text: 'Premium visuals position you as an industry leader.' },
+            ].map((statement) => (
+              <div key={statement.text} className="flex flex-col border-t-4 border-text-primary bg-gray-50 p-6">
+                <p className="text-text-primary text-lg leading-relaxed flex-grow">{statement.text}</p>
+                {statement.source && (
+                  <p className="text-text-tertiary text-xs mt-4">Source: {statement.source}</p>
+                )}
+              </div>
+            ))}
           </div>
         </Section>
 
@@ -161,15 +155,23 @@ export default function AudiovisualCampaign() {
         {/* 4. Our Audiovisual Services */}
         <Section title="Corporate Video Production Services We Offer" subtitle="TIF provides a full range of audiovisual services for B2B organizations, from explainer videos to event recaps" darkBg sectionNumber={4}>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {services.map((service) => (
-              <ServiceVideoCard
-                key={service.title}
-                title={service.title}
-                valueStatement={service.valueStatement}
-                price={service.price}
-                examples={service.examples}
-              />
-            ))}
+            {services.map((service, idx) => {
+              const isLast = idx === services.length - 1
+              return (
+                <ServiceVideoCard
+                  key={service.title}
+                  title={service.title}
+                  valueStatement={service.valueStatement}
+                  price={service.price}
+                  examples={service.examples}
+                  className={
+                    isLast
+                      ? 'md:col-span-2 md:w-[calc(50%-0.75rem)] md:mx-auto lg:col-span-3 lg:w-[calc(33.333%-1rem)] lg:mx-auto'
+                      : ''
+                  }
+                />
+              )
+            })}
           </div>
           <div className="text-center">
             <Link href="#proposal-form" className="inline-block bg-text-primary text-background px-12 py-5 hover:shadow-xl hover:scale-105 transition-all font-bold rounded-lg">
@@ -185,7 +187,7 @@ export default function AudiovisualCampaign() {
               <ProcessStep
                 number="1"
                 title="Discovery & Strategy"
-                description="Defining your story, audience, and objectives. We align on message and success metrics before anything is filmed."
+                description="Defining your story, audience, and objectives. We align on message and expectatives before anything is filmed."
                 delay="0s"
               />
               <ProcessStep
@@ -221,24 +223,14 @@ export default function AudiovisualCampaign() {
 
         {/* 6. Final CTA + Form */}
         <Section title="Schedule Your Free AV Strategy Session" sectionNumber={6} id="proposal-form">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-            <div className="flex flex-col justify-start">
-              <p className="text-text-secondary mb-8 text-lg leading-relaxed">
-                Tell us what type of video you need — brand film, explainer, case study, event recap, or training series — and
-                we'll map out the right approach for your goals.
-              </p>
-              <div className="flex flex-col gap-4">
-                <a href="#" className="inline-block border border-text-primary text-text-primary px-10 py-4 hover:bg-hover transition-colors font-semibold text-center">
-                  Download Our Audiovisual Services Guide
-                </a>
-                <Link href="/contact-us" className="inline-block text-text-secondary text-sm text-center hover:text-text-primary transition-colors">
-                  Or email us directly: hello@theideasfactory.com
-                </Link>
-              </div>
-            </div>
-            <div>
-              <AudiovisualForm />
-            </div>
+          <div className="max-w-2xl mx-auto">
+            <AudiovisualForm />
+            <p className="text-text-secondary text-sm text-center mt-6">
+              Or email us directly:{' '}
+              <a href="mailto:hello@theideasfactory.com" className="font-semibold text-text-primary hover:underline">
+                hello@theideasfactory.com
+              </a>
+            </p>
           </div>
         </Section>
       </main>

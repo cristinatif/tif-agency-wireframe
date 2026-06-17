@@ -10,9 +10,10 @@ interface ServiceVideoCardProps {
   valueStatement: string
   price: string
   examples: string[]
+  className?: string
 }
 
-export function ServiceVideoCard({ title, valueStatement, price, examples }: ServiceVideoCardProps) {
+export function ServiceVideoCard({ title, valueStatement, price, examples, className = '' }: ServiceVideoCardProps) {
   const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>()
   const [open, setOpen] = useState(false)
 
@@ -21,7 +22,7 @@ export function ServiceVideoCard({ title, valueStatement, price, examples }: Ser
       ref={ref}
       className={`flex flex-col overflow-hidden border border-gray-200 bg-white shadow-md hover:shadow-lg transition-shadow ${
         isVisible ? 'animate-zoom-in' : 'opacity-0 scale-95'
-      }`}
+      } ${className}`}
     >
       {/* Thumbnail / video still */}
       <div className="relative h-44 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center group">
