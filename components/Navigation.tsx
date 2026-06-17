@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { HiChevronDown } from 'react-icons/hi2'
+import { HiChevronDown, HiChevronRight } from 'react-icons/hi2'
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -21,10 +21,16 @@ export function Navigation() {
   const services = [
     { href: '/our-services/research-lab', label: 'Research Lab', subtitle: 'Data-Driven Insights' },
     { href: '/our-services/brand-strategy', label: 'Brand Strategy', subtitle: 'Strategic Positioning' },
-    { href: '/our-services/creative-studio', label: 'Creative Services', subtitle: 'Design & Content' },
+    {
+      href: '/our-services/creative-studio',
+      label: 'Creative Services',
+      subtitle: 'Design & Content',
+      children: [
+        { href: '/our-services/audiovisual-campaign', label: 'Audiovisual', subtitle: 'B2B Video Production' },
+      ],
+    },
     { href: '/our-services/digital-marketing', label: 'Digital Marketing', subtitle: 'Growth & Performance' },
     { href: '/our-services/experiential', label: 'Experiential Marketing', subtitle: 'Events & Activations' },
-    { href: '/our-services/audiovisual-campaign', label: 'Audiovisual Campaign', subtitle: 'B2B Video Production' },
     { href: '/our-services/integrated-solutions', label: 'Integrated Solutions', subtitle: 'Full-Service Growth' },
   ]
 
@@ -55,21 +61,65 @@ export function Navigation() {
                     {/* Services Dropdown */}
                     <div className={`absolute left-0 mt-0 w-80 bg-white border border-gray-200 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50`}>
                       <div className="p-6 space-y-1">
-                        {services.map((service, idx) => (
-                          <Link
-                            key={service.href}
-                            href={service.href}
-                            className={`block p-3 hover:bg-gray-50 rounded transition-colors group/service`}
-                            style={{ transitionDelay: `${idx * 25}ms` }}
-                          >
-                            <div className="text-sm font-semibold text-text-primary group-hover/service:text-gray-700">
-                              {service.label}
-                            </div>
-                            <div className="text-xs text-text-secondary group-hover/service:text-text-tertiary">
-                              {service.subtitle}
-                            </div>
-                          </Link>
-                        ))}
+                        {services.map((service, idx) => {
+                          if (service.children) {
+                            return (
+                              <div key={service.href} className="relative group/parent">
+                                <Link
+                                  href={service.href}
+                                  className="flex items-center justify-between gap-2 p-3 hover:bg-gray-50 rounded transition-colors group/service"
+                                  style={{ transitionDelay: `${idx * 25}ms` }}
+                                >
+                                  <div>
+                                    <div className="text-sm font-semibold text-text-primary group-hover/service:text-gray-700">
+                                      {service.label}
+                                    </div>
+                                    <div className="text-xs text-text-secondary group-hover/service:text-text-tertiary">
+                                      {service.subtitle}
+                                    </div>
+                                  </div>
+                                  <HiChevronRight size={16} className="flex-shrink-0 text-text-tertiary" />
+                                </Link>
+
+                                {/* Nested submenu */}
+                                <div className="absolute left-full top-0 ml-1 w-72 bg-white border border-gray-200 shadow-lg opacity-0 invisible group-hover/parent:opacity-100 group-hover/parent:visible transition-all duration-200 z-50">
+                                  <div className="p-4 space-y-1">
+                                    {service.children.map((child) => (
+                                      <Link
+                                        key={child.href}
+                                        href={child.href}
+                                        className="block p-3 hover:bg-gray-50 rounded transition-colors group/child"
+                                      >
+                                        <div className="text-sm font-semibold text-text-primary group-hover/child:text-gray-700">
+                                          {child.label}
+                                        </div>
+                                        <div className="text-xs text-text-secondary group-hover/child:text-text-tertiary">
+                                          {child.subtitle}
+                                        </div>
+                                      </Link>
+                                    ))}
+                                  </div>
+                                </div>
+                              </div>
+                            )
+                          }
+
+                          return (
+                            <Link
+                              key={service.href}
+                              href={service.href}
+                              className={`block p-3 hover:bg-gray-50 rounded transition-colors group/service`}
+                              style={{ transitionDelay: `${idx * 25}ms` }}
+                            >
+                              <div className="text-sm font-semibold text-text-primary group-hover/service:text-gray-700">
+                                {service.label}
+                              </div>
+                              <div className="text-xs text-text-secondary group-hover/service:text-text-tertiary">
+                                {service.subtitle}
+                              </div>
+                            </Link>
+                          )
+                        })}
                       </div>
                     </div>
                   </div>
@@ -154,15 +204,31 @@ export function Navigation() {
                     {servicesOpen && (
                       <div className="pl-4 space-y-2 mt-2 border-l border-gray-200">
                         {services.map((service) => (
-                          <Link
-                            key={service.href}
-                            href={service.href}
-                            className="block text-text-secondary hover:text-text-primary transition-colors text-xs py-2"
-                            onClick={() => setIsOpen(false)}
-                          >
-                            <div className="font-semibold">{service.label}</div>
-                            <div className="text-text-tertiary">{service.subtitle}</div>
-                          </Link>
+                          <div key={service.href}>
+                            <Link
+                              href={service.href}
+                              className="block text-text-secondary hover:text-text-primary transition-colors text-xs py-2"
+                              onClick={() => setIsOpen(false)}
+                            >
+                              <div className="font-semibold">{service.label}</div>
+                              <div className="text-text-tertiary">{service.subtitle}</div>
+                            </Link>
+                            {service.children && (
+                              <div className="pl-4 mt-1 space-y-1 border-l border-gray-200">
+                                {service.children.map((child) => (
+                                  <Link
+                                    key={child.href}
+                                    href={child.href}
+                                    className="block text-text-secondary hover:text-text-primary transition-colors text-xs py-2"
+                                    onClick={() => setIsOpen(false)}
+                                  >
+                                    <div className="font-semibold">{child.label}</div>
+                                    <div className="text-text-tertiary">{child.subtitle}</div>
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
+                          </div>
                         ))}
                       </div>
                     )}
