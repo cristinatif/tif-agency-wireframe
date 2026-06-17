@@ -24,6 +24,7 @@ export function Navigation() {
     { href: '/our-services/creative-studio', label: 'Creative Services', subtitle: 'Design & Content' },
     { href: '/our-services/digital-marketing', label: 'Digital Marketing', subtitle: 'Growth & Performance' },
     { href: '/our-services/experiential', label: 'Experiential Marketing', subtitle: 'Events & Activations' },
+    { href: '/our-services/audiovisual-campaign', label: 'Audiovisual Campaign', subtitle: 'B2B Video Production' },
     { href: '/our-services/integrated-solutions', label: 'Integrated Solutions', subtitle: 'Full-Service Growth' },
   ]
 

@@ -9,9 +9,10 @@ interface HeroProps {
   title: string
   subtitle?: string
   description?: string
+  children?: ReactNode
 }
 
-export function Hero({ title, subtitle, description }: HeroProps) {
+export function Hero({ title, subtitle, description, children }: HeroProps) {
   const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>()
 
   return (
@@ -37,6 +38,11 @@ export function Hero({ title, subtitle, description }: HeroProps) {
         {description && <p className={`text-text-secondary max-w-2xl mx-auto ${
           isVisible ? 'animate-fade-in' : 'opacity-0'
         }`} style={{ animationDelay: '0.2s' }}>{description}</p>}
+        {children && (
+          <div className={`mt-8 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.3s' }}>
+            {children}
+          </div>
+        )}
       </div>
     </div>
   )
@@ -48,15 +54,17 @@ interface SectionProps {
   children: ReactNode
   darkBg?: boolean
   sectionNumber?: number
+  id?: string
 }
 
-export function Section({ title, subtitle, children, darkBg = false, sectionNumber }: SectionProps) {
+export function Section({ title, subtitle, children, darkBg = false, sectionNumber, id }: SectionProps) {
   const { ref, isVisible } = useIntersectionObserver<HTMLElement>()
 
   return (
     <section
       ref={ref}
-      className={`${darkBg ? 'bg-gray-100' : 'bg-white'} py-16 md:py-24 border-b border-gray-200 transition-colors ${
+      id={id}
+      className={`${darkBg ? 'bg-gray-100' : 'bg-white'} py-16 md:py-24 border-b border-gray-200 transition-colors scroll-mt-nav-height ${
         isVisible ? 'animate-fade-in' : 'opacity-0'
       }`}
     >
