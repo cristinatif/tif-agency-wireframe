@@ -48,12 +48,6 @@ export default function AudiovisualCampaign() {
       examples: ['Client interview feature', 'Results case study', 'Short testimonial cut'],
     },
     {
-      title: 'Training & Compliance Videos',
-      valueStatement: 'Standardize knowledge across your organization with clear, repeatable training content.',
-      price: '$2,500',
-      examples: ['Micro-learning series', 'Onboarding & SOP module', 'Compliance training'],
-    },
-    {
       title: 'Executive Leadership Communication Videos',
       valueStatement: 'Internal and external messages that land. Polished leadership films for key moments.',
       price: '$3,500',
@@ -143,7 +137,17 @@ export default function AudiovisualCampaign() {
         {/* 2. Trusted by / Testimonials */}
         <Section title="Trusted by Global B2B Leaders" subtitle="Governments, corporates, and associations across three continents" darkBg sectionNumber={2}>
           <LogoCarousel
-            logos={['Orica', 'ATT', 'RQ', 'Logo 4', 'Logo 5', 'Logo 6', 'Logo 7', 'Logo 8', 'Logo 9', 'Logo 10']}
+            logos={[
+              'Orica',
+              'ATT',
+              'RQ',
+              'The Functionary',
+              'Institute of The Americas',
+              'Dreem',
+              'Gunallo',
+              'The Independence Hub',
+              'Study Queensland',
+            ]}
           />
         </Section>
 
@@ -155,23 +159,15 @@ export default function AudiovisualCampaign() {
         {/* 4. Our Audiovisual Services */}
         <Section title="Corporate Video Production Services We Offer" subtitle="TIF provides a full range of audiovisual services for B2B organizations, from explainer videos to event recaps" darkBg sectionNumber={4}>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {services.map((service, idx) => {
-              const isLast = idx === services.length - 1
-              return (
-                <ServiceVideoCard
-                  key={service.title}
-                  title={service.title}
-                  valueStatement={service.valueStatement}
-                  price={service.price}
-                  examples={service.examples}
-                  className={
-                    isLast
-                      ? 'md:col-span-2 md:w-[calc(50%-0.75rem)] md:mx-auto lg:col-span-3 lg:w-[calc(33.333%-1rem)] lg:mx-auto'
-                      : ''
-                  }
-                />
-              )
-            })}
+            {services.map((service) => (
+              <ServiceVideoCard
+                key={service.title}
+                title={service.title}
+                valueStatement={service.valueStatement}
+                price={service.price}
+                examples={service.examples}
+              />
+            ))}
           </div>
           <div className="text-center">
             <Link href="#proposal-form" className="inline-block bg-text-primary text-background px-12 py-5 hover:shadow-xl hover:scale-105 transition-all font-bold rounded-lg">
