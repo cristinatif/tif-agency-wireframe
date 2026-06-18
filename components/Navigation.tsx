@@ -3,11 +3,17 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { HiChevronDown, HiChevronRight } from 'react-icons/hi2'
+import { useLanguage } from '@/components/LanguageContext'
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
-  const [language, setLanguage] = useState<'en' | 'es'>('en')
+  const [localLanguage, setLocalLanguage] = useState<'en' | 'es'>('en')
+  // When a page provides a LanguageProvider, the header switch controls that
+  // page's language; otherwise it falls back to local (visual-only) state.
+  const langCtx = useLanguage()
+  const language = langCtx ? langCtx.lang : localLanguage
+  const setLanguage = langCtx ? langCtx.setLang : setLocalLanguage
 
   const mainLinks = [
     { href: '/', label: 'Home' },
@@ -26,7 +32,14 @@ export function Navigation() {
       label: 'Creative Services',
       subtitle: 'Design & Content',
       children: [
-        { href: '/our-services/audiovisual-campaign', label: 'Audiovisual', subtitle: 'B2B Video Production' },
+        {
+          href: '/our-services/audiovisual-campaign',
+          label: 'Audiovisual',
+          subtitle: 'B2B Video Production',
+          children: [
+            { href: '/our-services/audiovisual-campaign/case-study-videos', label: 'Case Study Videos', subtitle: 'Sales-enablement video' },
+          ],
+        },
       ],
     },
     { href: '/our-services/digital-marketing', label: 'Digital Marketing', subtitle: 'Growth & Performance' },
@@ -84,20 +97,59 @@ export function Navigation() {
                                 {/* Nested submenu */}
                                 <div className="absolute left-full top-0 ml-1 w-72 bg-white border border-gray-200 shadow-lg opacity-0 invisible group-hover/parent:opacity-100 group-hover/parent:visible transition-all duration-200 z-50">
                                   <div className="p-4 space-y-1">
-                                    {service.children.map((child) => (
-                                      <Link
-                                        key={child.href}
-                                        href={child.href}
-                                        className="block p-3 hover:bg-gray-50 rounded transition-colors group/child"
-                                      >
-                                        <div className="text-sm font-semibold text-text-primary group-hover/child:text-gray-700">
-                                          {child.label}
+                                    {service.children.map((child) =>
+                                      child.children ? (
+                                        <div key={child.href} className="relative group/sub">
+                                          <Link
+                                            href={child.href}
+                                            className="flex items-center justify-between gap-2 p-3 hover:bg-gray-50 rounded transition-colors group/child"
+                                          >
+                                            <div>
+                                              <div className="text-sm font-semibold text-text-primary group-hover/child:text-gray-700">
+                                                {child.label}
+                                              </div>
+                                              <div className="text-xs text-text-secondary group-hover/child:text-text-tertiary">
+                                                {child.subtitle}
+                                              </div>
+                                            </div>
+                                            <HiChevronRight size={16} className="flex-shrink-0 text-text-tertiary" />
+                                          </Link>
+
+                                          {/* Third-level submenu */}
+                                          <div className="absolute left-full top-0 ml-1 w-72 bg-white border border-gray-200 shadow-lg opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-200 z-50">
+                                            <div className="p-4 space-y-1">
+                                              {child.children.map((grandchild) => (
+                                                <Link
+                                                  key={grandchild.href}
+                                                  href={grandchild.href}
+                                                  className="block p-3 hover:bg-gray-50 rounded transition-colors group/gc"
+                                                >
+                                                  <div className="text-sm font-semibold text-text-primary group-hover/gc:text-gray-700">
+                                                    {grandchild.label}
+                                                  </div>
+                                                  <div className="text-xs text-text-secondary group-hover/gc:text-text-tertiary">
+                                                    {grandchild.subtitle}
+                                                  </div>
+                                                </Link>
+                                              ))}
+                                            </div>
+                                          </div>
                                         </div>
-                                        <div className="text-xs text-text-secondary group-hover/child:text-text-tertiary">
-                                          {child.subtitle}
-                                        </div>
-                                      </Link>
-                                    ))}
+                                      ) : (
+                                        <Link
+                                          key={child.href}
+                                          href={child.href}
+                                          className="block p-3 hover:bg-gray-50 rounded transition-colors group/child"
+                                        >
+                                          <div className="text-sm font-semibold text-text-primary group-hover/child:text-gray-700">
+                                            {child.label}
+                                          </div>
+                                          <div className="text-xs text-text-secondary group-hover/child:text-text-tertiary">
+                                            {child.subtitle}
+                                          </div>
+                                        </Link>
+                                      )
+                                    )}
                                   </div>
                                 </div>
                               </div>
@@ -216,15 +268,31 @@ export function Navigation() {
                             {service.children && (
                               <div className="pl-4 mt-1 space-y-1 border-l border-gray-200">
                                 {service.children.map((child) => (
-                                  <Link
-                                    key={child.href}
-                                    href={child.href}
-                                    className="block text-text-secondary hover:text-text-primary transition-colors text-xs py-2"
-                                    onClick={() => setIsOpen(false)}
-                                  >
-                                    <div className="font-semibold">{child.label}</div>
-                                    <div className="text-text-tertiary">{child.subtitle}</div>
-                                  </Link>
+                                  <div key={child.href}>
+                                    <Link
+                                      href={child.href}
+                                      className="block text-text-secondary hover:text-text-primary transition-colors text-xs py-2"
+                                      onClick={() => setIsOpen(false)}
+                                    >
+                                      <div className="font-semibold">{child.label}</div>
+                                      <div className="text-text-tertiary">{child.subtitle}</div>
+                                    </Link>
+                                    {child.children && (
+                                      <div className="pl-4 mt-1 space-y-1 border-l border-gray-200">
+                                        {child.children.map((grandchild) => (
+                                          <Link
+                                            key={grandchild.href}
+                                            href={grandchild.href}
+                                            className="block text-text-secondary hover:text-text-primary transition-colors text-xs py-2"
+                                            onClick={() => setIsOpen(false)}
+                                          >
+                                            <div className="font-semibold">{grandchild.label}</div>
+                                            <div className="text-text-tertiary">{grandchild.subtitle}</div>
+                                          </Link>
+                                        ))}
+                                      </div>
+                                    )}
+                                  </div>
                                 ))}
                               </div>
                             )}
