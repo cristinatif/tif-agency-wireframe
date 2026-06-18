@@ -1,6 +1,10 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+/* Load the legacy JS config so Tailwind v4 generates the project's custom
+   color and spacing utilities (text-primary, bg-text-primary, nav-height, etc.) */
+@config '../tailwind.config.ts';
+
 @layer components {
   @keyframes fadeIn {
     from {

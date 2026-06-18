@@ -86,7 +86,6 @@ const content = {
     final: {
       h2: 'Every project you deliver without turning it into a case study is a sales opportunity lost.',
       subtext: 'A case study video is the most underused B2B sales tool in Colombian industry. The companies that use it sell faster.',
-      cta: 'Chat with us now',
       small: 'The Ideas Factory · B2B Audiovisual Production · www.tifagency.com',
     },
     playbook: {
@@ -166,7 +165,6 @@ const content = {
     final: {
       h2: 'Cada proyecto que entregas sin convertirlo en un caso de estudio es una oportunidad de venta que se pierde.',
       subtext: 'Un video de caso de estudio es la herramienta de ventas B2B más subutilizada en la industria colombiana. Las empresas que lo usan, venden más rápido.',
-      cta: 'Chatea con nosotros ahora',
       small: 'The Ideas Factory · Producción Audiovisual B2B · www.tifagency.com',
     },
     playbook: {
@@ -433,9 +431,6 @@ function CaseStudyVideosContent() {
             <p className="text-gray-500 text-sm mb-4">[Section 07]</p>
             <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">{t.final.h2}</h2>
             <p className="text-text-secondary text-lg max-w-2xl mx-auto mb-10">{t.final.subtext}</p>
-            <a href={wa} target="_blank" rel="noopener noreferrer" className="inline-block bg-black text-white px-12 py-5 font-bold hover:opacity-80 transition-opacity">
-              {t.final.cta}
-            </a>
             <p className="text-text-tertiary text-xs mt-12">{t.final.small}</p>
           </div>
         </section>
