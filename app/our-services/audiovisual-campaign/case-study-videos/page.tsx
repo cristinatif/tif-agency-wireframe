@@ -1,8 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { Navigation } from '@/components/Navigation'
-import { Footer } from '@/components/Footer'
 import { VideoPlaceholder } from '@/components/SectionComponents'
 import { LanguageProvider, useLanguage, type Lang } from '@/components/LanguageContext'
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
@@ -23,18 +21,22 @@ const content = {
       h1: 'Turn your projects into sales tools',
       sub: 'Industrial companies are turning their success stories into narratives that accelerate sales, build trust, and open new opportunities.',
       ctaPrimary: 'Chat with us now',
-      ctaSecondary: "Let's talk about your goals",
+      cta: 'Download the Playbook',
+      tagline: 'From delivered project to sales tool: the industrial case study system.',
     },
     social: { label: 'Trusted by' },
     problem: {
       label: 'The Problem',
       h2: 'Most industrial projects are worth far more than they communicate.',
       body: 'Every delivered project contains real proof of your capability: the problem you solved, how you did it, what resulted. But that value disappears into reports, PDFs no one reads, and meetings you repeat over and over. Meanwhile, your sales team keeps explaining from scratch. Every time. With every prospect.',
-      cards: [
-        { title: "What's happening?", text: 'You deliver the project, document it, forget it.' },
-        { title: 'The result', text: 'Your sales team explains the same thing, over and over, in every meeting.' },
-        { title: 'The missed opportunity', text: 'Proposals with no visual proof. Tenders lost to competitors who communicate their achievements better.' },
-      ],
+      table: {
+        headers: ['Before', 'After', 'Impact'],
+        rows: [
+          ['Complex value explained only in meetings', 'Project story shared upfront', 'Faster alignment and stronger sales conversations'],
+          ['Projects delivered but not reused commercially', 'Case study content created from delivery', 'Long-term sales and credibility asset'],
+          ['Technical expertise hard to communicate', 'Visual storytelling used across the sales process', 'Improved understanding and decision speed'],
+        ],
+      },
     },
     how: {
       label: 'How it works',
@@ -46,7 +48,6 @@ const content = {
         { n: '03', title: 'Result', text: 'Measurable result. What changed for your client. Numbers, efficiency, trust earned.' },
       ],
       note: "An industrial buyer doesn't need more information. They need to understand faster. A case study video is the tool that makes that happen.",
-      ctaPrimary: "Let's talk?",
       ctaSecondary: 'Download the "Case Study Playbook"',
     },
     proof: {
@@ -73,15 +74,10 @@ const content = {
       pricing: 'Investment from $3,500,000 COP.',
     },
     contact: {
-      label: 'Talk to Us',
-      h2: 'Do you have a project that deserves to be communicated more powerfully?',
-      body: 'Tell us about your company. Our commercial team will reach out to discuss how we can turn your work into your best sales tool.',
-      whatsappNote: 'Or if you prefer, message us directly',
-      whatsappBtn: 'Message us on WhatsApp',
-      formTitle: 'Send us your details',
+      headline: 'Start With the Playbook',
+      copy: 'Understand how industrial companies are turning projects into ongoing sales tools.',
+      cta: 'Download the Playbook',
       fields: { name: 'Name', company: 'Company', role: 'Role', email: 'Email', phone: 'Phone', optional: 'optional' },
-      submit: 'Send',
-      success: 'Thanks! Our commercial team will be in touch shortly.',
     },
     final: {
       h2: 'Every project you deliver without turning it into a case study is a sales opportunity lost.',
@@ -102,18 +98,22 @@ const content = {
       h1: 'Transforma tus proyectos en herramientas comerciales',
       sub: 'Las empresas industriales están convirtiendo sus casos de éxito en historias que aceleran las ventas, construyen confianza y abren nuevas oportunidades.',
       ctaPrimary: 'Chatea con nosotros ahora',
-      ctaSecondary: 'Conversemos sobre tus objetivos',
+      cta: 'Descarga el Playbook',
+      tagline: 'De proyecto entregado a herramienta comercial: El sistema de casos de éxito industriales.',
     },
     social: { label: 'Confían en nosotros' },
     problem: {
       label: 'El Problema',
       h2: 'La mayoría de los proyectos industriales valen mucho más de lo que comunican.',
       body: 'Cada proyecto entregado contiene prueba real de tu capacidad: el problema que resolviste, cómo lo hiciste, qué resultó. Pero ese valor desaparece en informes, en PDFs que nadie lee y en reuniones que hay que repetir una y otra vez. Mientras tanto, tu equipo de ventas sigue explicando desde cero. Cada vez. Con cada prospecto.',
-      cards: [
-        { title: '¿Qué está pasando?', text: 'Entregas el proyecto, lo documentas, lo olvidas.' },
-        { title: 'El resultado', text: 'Tu equipo de ventas explica lo mismo, una y otra vez, en cada reunión.' },
-        { title: 'La oportunidad perdida', text: 'Propuestas sin prueba visual. Licitaciones que se pierden ante competidores que saben comunicar mejor sus logros.' },
-      ],
+      table: {
+        headers: ['Antes', 'Después', 'Impacto'],
+        rows: [
+          ['Valor complejo explicado solo en reuniones', 'Historia del proyecto compartida desde el inicio', 'Alineación más rápida y conversaciones de venta más sólidas'],
+          ['Proyectos entregados pero no reutilizados comercialmente', 'Contenido de caso de estudio creado a partir de la entrega', 'Activo de ventas y credibilidad a largo plazo'],
+          ['Experiencia técnica difícil de comunicar', 'Narrativa visual usada en todo el proceso de ventas', 'Mejor comprensión y mayor velocidad de decisión'],
+        ],
+      },
     },
     how: {
       label: 'Cómo funciona',
@@ -125,7 +125,6 @@ const content = {
         { n: '03', title: 'Resultado', text: 'Resultado medible. Lo que cambió para tu cliente. Números, eficiencia, confianza ganada.' },
       ],
       note: 'Un comprador industrial no necesita más información. Necesita entender más rápido. Un video de caso de estudio es la herramienta que lo facilita.',
-      ctaPrimary: '¿Conversamos?',
       ctaSecondary: 'Descarga el "Case Study Playbook"',
     },
     proof: {
@@ -152,15 +151,10 @@ const content = {
       pricing: 'Inversión desde $3.500.000 COP.',
     },
     contact: {
-      label: 'Habla Con Nosotros',
-      h2: '¿Tienes un proyecto que debería comunicarse de manera más contundente?',
-      body: 'Cuéntanos de tu empresa. Nuestro equipo comercial te contactará para hablar sobre cómo podemos convertir tu trabajo en tu mejor herramienta de ventas.',
-      whatsappNote: 'O si prefieres, escríbenos directamente',
-      whatsappBtn: 'Escríbenos por WhatsApp',
-      formTitle: 'Déjanos tus datos',
+      headline: 'Empieza con el Playbook',
+      copy: 'Descubre cómo las empresas industriales están convirtiendo sus proyectos en herramientas de venta permanentes.',
+      cta: 'Descarga el Playbook',
       fields: { name: 'Nombre', company: 'Empresa', role: 'Cargo', email: 'Email', phone: 'Teléfono', optional: 'opcional' },
-      submit: 'Enviar',
-      success: '¡Gracias! Nuestro equipo comercial te contactará muy pronto.',
     },
     final: {
       h2: 'Cada proyecto que entregas sin convertirlo en un caso de estudio es una oportunidad de venta que se pierde.',
@@ -197,7 +191,6 @@ function CaseStudyVideosContent() {
   const langCtx = useLanguage()
   const lang: Lang = langCtx ? langCtx.lang : 'en'
   const [playbookOpen, setPlaybookOpen] = useState(false)
-  const [formSent, setFormSent] = useState(false)
   const [playbookSent, setPlaybookSent] = useState(false)
   const [activeVideo, setActiveVideo] = useState<string | null>(null)
   const t = content[lang]
@@ -207,7 +200,26 @@ function CaseStudyVideosContent() {
 
   return (
     <>
-      <Navigation />
+      {/* Minimal campaign header: logo (links home) + language toggle only */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-300 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-nav-height flex items-center justify-between">
+          <a href="/" className="text-2xl font-bold text-text-primary">TIF</a>
+          <div className="flex items-center gap-1 border border-gray-300 rounded">
+            {(['en', 'es'] as Lang[]).map((l) => (
+              <button
+                key={l}
+                onClick={() => langCtx?.setLang(l)}
+                className={`px-3 py-1 text-xs font-semibold transition-colors ${
+                  lang === l ? 'bg-text-primary text-white' : 'text-text-secondary hover:text-text-primary'
+                }`}
+                aria-pressed={lang === l}
+              >
+                {l.toUpperCase()}
+              </button>
+            ))}
+          </div>
+        </div>
+      </header>
 
       <main className="pt-nav-height">
         {/* 1. HERO */}
@@ -224,14 +236,16 @@ function CaseStudyVideosContent() {
             <p className="text-gray-500 text-sm mb-4">[Hero section]</p>
             <h1 className="text-4xl md:text-6xl font-bold text-text-primary mb-6">{t.hero.h1}</h1>
             <p className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto mb-10">{t.hero.sub}</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a href={wa} target="_blank" rel="noopener noreferrer" className="inline-block bg-black text-white px-10 py-4 font-bold hover:opacity-80 transition-opacity">
-                {t.hero.ctaPrimary}
-              </a>
-              <a href="#contact" className="inline-block border border-black text-black px-10 py-4 font-semibold hover:bg-gray-100 transition-colors">
-                {t.hero.ctaSecondary}
-              </a>
+            <div className="flex justify-center">
+              <button
+                type="button"
+                onClick={() => setPlaybookOpen(true)}
+                className="inline-block bg-black text-white px-10 py-4 font-bold hover:opacity-80 transition-opacity"
+              >
+                {t.hero.cta}
+              </button>
             </div>
+            <p className="text-text-tertiary text-xs mt-6">{t.hero.tagline}</p>
           </div>
         </section>
 
@@ -262,13 +276,41 @@ function CaseStudyVideosContent() {
               <h2 className="text-3xl md:text-4xl font-bold text-text-primary max-w-3xl mb-6">{t.problem.h2}</h2>
               <p className="text-text-secondary max-w-3xl leading-relaxed mb-12">{t.problem.body}</p>
             </Reveal>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {t.problem.cards.map((card) => (
-                <div key={card.title} className="bg-white border border-gray-200 p-8">
-                  <h3 className="text-text-primary font-bold uppercase text-sm tracking-wide mb-3">{card.title}</h3>
-                  <p className="text-text-secondary text-sm leading-relaxed">{card.text}</p>
-                </div>
-              ))}
+            <div className="overflow-x-auto border border-gray-300 bg-white">
+              <table className="w-full border-collapse text-left min-w-[640px]">
+                <thead>
+                  <tr>
+                    {t.problem.table.headers.map((header, idx) => (
+                      <th
+                        key={header}
+                        className={`bg-gray-100 px-6 py-4 text-text-primary font-bold text-xs uppercase tracking-widest ${
+                          idx > 0 ? 'border-l border-gray-300' : ''
+                        } border-b border-gray-300`}
+                      >
+                        {header}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {t.problem.table.rows.map((row, rowIdx) => (
+                    <tr key={rowIdx} className="hover:bg-gray-50 transition-colors">
+                      {row.map((cell, colIdx) => (
+                        <td
+                          key={colIdx}
+                          className={`px-6 py-5 align-top text-sm leading-relaxed ${
+                            colIdx > 0 ? 'border-l border-gray-300' : ''
+                          } ${rowIdx < t.problem.table.rows.length - 1 ? 'border-b border-gray-300' : ''} ${
+                            colIdx === 2 ? 'text-text-primary font-medium' : 'text-text-secondary'
+                          }`}
+                        >
+                          {cell}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
@@ -295,10 +337,7 @@ function CaseStudyVideosContent() {
               {t.how.note}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href={wa} target="_blank" rel="noopener noreferrer" className="inline-block bg-black text-white px-10 py-4 font-bold hover:opacity-80 transition-opacity text-center">
-                {t.how.ctaPrimary}
-              </a>
-              <button onClick={() => setPlaybookOpen(true)} className="inline-block border border-black text-black px-10 py-4 font-semibold hover:bg-gray-100 transition-colors text-center">
+              <button onClick={() => setPlaybookOpen(true)} className="inline-block bg-black text-white px-10 py-4 font-bold hover:opacity-80 transition-opacity text-center">
                 {t.how.ctaSecondary}
               </button>
             </div>
@@ -361,67 +400,19 @@ function CaseStudyVideosContent() {
           </div>
         </section>
 
-        {/* 7. CONTACT FORM */}
+        {/* 6. START WITH THE PLAYBOOK */}
         <section id="contact" className="bg-gray-50 border-b border-gray-200 py-20 md:py-28 scroll-mt-nav-height">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p className="text-gray-500 text-sm mb-4">[Section 06]</p>
-            <p className="text-text-tertiary text-xs uppercase tracking-widest mb-3">{t.contact.label}</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">{t.contact.h2}</h2>
-                <p className="text-text-secondary leading-relaxed mb-8">{t.contact.body}</p>
-                <p className="text-text-primary font-semibold mb-3">{t.contact.whatsappNote}</p>
-                <a href={wa} target="_blank" rel="noopener noreferrer" className="inline-block border border-black text-black px-8 py-4 font-semibold hover:bg-gray-100 transition-colors">
-                  {t.contact.whatsappBtn}
-                </a>
-              </div>
-              <div className="bg-white border border-gray-200 p-8 md:p-10">
-                <h3 className="text-xl font-bold text-text-primary mb-6">{t.contact.formTitle}</h3>
-                {formSent ? (
-                  <div className="text-center py-8">
-                    <div className="text-4xl mb-4">✓</div>
-                    <p className="text-text-secondary">{t.contact.success}</p>
-                  </div>
-                ) : (
-                  <form
-                    onSubmit={(e) => {
-                      e.preventDefault()
-                      setFormSent(true)
-                      setTimeout(() => setFormSent(false), 5000)
-                    }}
-                    className="space-y-5"
-                  >
-                    <div>
-                      <label className="block text-sm font-semibold text-text-primary mb-2">{f.name} *</label>
-                      <input required type="text" className="w-full px-4 py-3 border border-gray-300 bg-white focus:outline-none focus:border-text-primary" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-text-primary mb-2">{f.company} *</label>
-                      <input required type="text" className="w-full px-4 py-3 border border-gray-300 bg-white focus:outline-none focus:border-text-primary" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-text-primary mb-2">
-                        {f.role} <span className="text-text-tertiary font-normal">({f.optional})</span>
-                      </label>
-                      <input type="text" className="w-full px-4 py-3 border border-gray-300 bg-white focus:outline-none focus:border-text-primary" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-text-primary mb-2">{f.email} *</label>
-                      <input required type="email" className="w-full px-4 py-3 border border-gray-300 bg-white focus:outline-none focus:border-text-primary" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-text-primary mb-2">
-                        {f.phone} <span className="text-text-tertiary font-normal">({f.optional})</span>
-                      </label>
-                      <input type="tel" className="w-full px-4 py-3 border border-gray-300 bg-white focus:outline-none focus:border-text-primary" />
-                    </div>
-                    <button type="submit" className="w-full bg-black text-white py-4 font-bold hover:opacity-80 transition-opacity">
-                      {t.contact.submit}
-                    </button>
-                  </form>
-                )}
-              </div>
-            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">{t.contact.headline}</h2>
+            <p className="text-text-secondary text-lg leading-relaxed mb-10">{t.contact.copy}</p>
+            <button
+              type="button"
+              onClick={() => setPlaybookOpen(true)}
+              className="inline-block bg-black text-white px-12 py-5 font-bold hover:opacity-80 transition-opacity"
+            >
+              {t.contact.cta}
+            </button>
           </div>
         </section>
 
@@ -493,8 +484,6 @@ function CaseStudyVideosContent() {
           </div>
         </div>
       )}
-
-      <Footer />
     </>
   )
 }
