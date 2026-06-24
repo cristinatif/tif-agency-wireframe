@@ -82,10 +82,12 @@ export function Section({ title, subtitle, children, darkBg = false, sectionNumb
   )
 }
 
+type CardDetail = string | { label: string; href: string }
+
 interface CardProps {
   title: string
   description: string
-  details?: string[]
+  details?: CardDetail[]
 }
 
 export function Card({ title, description, details }: CardProps) {
@@ -108,7 +110,13 @@ export function Card({ title, description, details }: CardProps) {
           {details.map((detail, idx) => (
             <li key={idx} className="flex items-start gap-2">
               <span className="text-text-primary">→</span>
-              <span>{detail}</span>
+              {typeof detail === 'string' ? (
+                <span>{detail}</span>
+              ) : (
+                <Link href={detail.href} className="text-text-primary font-semibold hover:underline">
+                  {detail.label}
+                </Link>
+              )}
             </li>
           ))}
         </ul>

@@ -31,14 +31,14 @@ export default function Home() {
             <Card
               title="Creative Services"
               description="Design, audiovisual content, and digital experiences that capture attention"
-              details={['Design services', 'AV production', 'Digital design']}
+              details={['Design services', { label: 'AV production', href: '/our-services/audiovisual-campaign' }, 'Digital design']}
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Card
               title="Growth Marketing"
               description="Performance-driven digital marketing including paid media, SEO, and CRM"
-              details={['Web marketing', 'Performance ads', 'SEO optimization']}
+              details={[{ label: 'Web Partnership', href: '/our-services/digital-marketing/web-partnership' }, 'Performance ads', 'SEO optimization']}
             />
             <Card
               title="Experiential Marketing"
