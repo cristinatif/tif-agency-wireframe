@@ -24,7 +24,14 @@ export function Navigation() {
     { href: '/contact-us', label: 'Contact Us' },
   ]
 
-  const services = [
+  type ServiceItem = {
+    href: string
+    label: string
+    subtitle: string
+    children?: ServiceItem[]
+  }
+
+  const services: ServiceItem[] = [
     { href: '/our-services/research-lab', label: 'Research Lab', subtitle: 'Data-Driven Insights' },
     { href: '/our-services/brand-strategy', label: 'Brand Strategy', subtitle: 'Strategic Positioning' },
     {
@@ -42,7 +49,14 @@ export function Navigation() {
         },
       ],
     },
-    { href: '/our-services/digital-marketing', label: 'Digital Marketing', subtitle: 'Growth & Performance' },
+    {
+      href: '/our-services/digital-marketing',
+      label: 'Digital Marketing',
+      subtitle: 'Growth & Performance',
+      children: [
+        { href: '/our-services/digital-marketing/web-partnership', label: 'Web Partnership', subtitle: 'WordPress care & quick wins' },
+      ],
+    },
     { href: '/our-services/experiential', label: 'Experiential Marketing', subtitle: 'Events & Activations' },
     { href: '/our-services/integrated-solutions', label: 'Integrated Solutions', subtitle: 'Full-Service Growth' },
   ]
